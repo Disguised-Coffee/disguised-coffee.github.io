@@ -1,0 +1,12 @@
+/*MR.STICKY!*/
+.sticky{
+    margin-right:-131px;
+    margin-left:-131px;
+    padding-right:31px;
+    padding-left:31px;
+    
+    position:sticky;
+    top:0;
+    background-color:#4a86e8;
+    font-family:;
+}
