@@ -1,12 +1,58 @@
+/*
+    Notes:
+        margin
+            margin: (TOP) (RIGHT) (BOTTOM) (LEFT);
+*/
+
+
 /*MR.STICKY!*/
 .sticky{
-    margin-right:-131px;
-    margin-left:-131px;
-    padding-right:31px;
-    padding-left:31px;
-    
-    position:sticky;
+    overflow: hidden;
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    position: -webkit-sticky;  
+    position: sticky;
     top:0;
     background-color:#4a86e8;
-    font-family:;
-} 
+}
+li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.headerLast{
+    float:right;
+}
+.background{
+    /*background-image:url(https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;*/
+    /*Dark background colors*/
+    background-color:#66594d;
+    background-color:#2b2621;
+    background-color:#1a1613;
+    color:#ededed;
+    /*Light background colors*/
+    background-color:white;
+    color:black;
+}
+.innerPage{
+    margin: 4px 4vw 30px 4vw;
+    padding-top:4px;
+    padding-right:11px;
+    padding-left:31px;
+    /*Dark*/
+    background-color:#2b2621;
+    /*light*/
+    background-color:#f2f3f5;
+}
+.head1{
+    font-size: 4vw;
+    text-align:center;
+    font-family: Verdana, Helvetica, sans-serif;
+}
