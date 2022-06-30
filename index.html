@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Disguised Coffee Test</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body class="background">
+    <head>
+        <title>Disguised_Coffee - Home</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="background">
     <!--Top Bar-->
-        <ul class="sticky">
-            <li><a href="index.html">home</a></li>
-            <li class="headerLast"><a href="index.html">This is a test</a></li>
-            <li class="headerLast"><a href="index.html">This is another test</a></li>
+        <ul class="topBar">
+            <li><a href="index.html" title="Back to homepage">home</a></li>
+            <li class="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
+            <li class="headerLast"><a href="#AboutMe" title="About Me">About Me</a></li>
         </ul>
     <!--Actual body-->
         
@@ -17,25 +17,36 @@
           HELLO WORLD FROM DISGUISED_COFFEE
         </h1>
         <div class="innerPage">
-            <h3><a href="#Bottom" title="Click this and skip the image!">Link to bottom of page</a></h3>
-            <h3>
-              THIS IS A TEST.<br>THIS IS A TEST.<br>THIS IS A TEST.<br>THIS IS A TEST.<br>THIS IS A TEST.<br>
-            </h3>
-        
+            <article id="AboutMe">
+                <h3 >About me</h3>
+                <p>I am a new Github user, interested in building application, video games, and software programs.<br>
+                    Currently, I  work with HTML, CSS, Java, and Python.<br>
+                    Aside from programming, I also draw and (at least try to) create 3D objects with Blender.<br>
+                    My other interests involve cars, plants, and the horror genre.
+                </p>
+            </article>
+            <article id="Projects">
+                <h3>My Projects</h3>
+                <p>A collection of public projects I am currently working on or have done.</p>
+            </article>
             <!--https://flic.kr/p/2hPcPPZ-->
-            <img src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="1000" height="666">
+            <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="100%" height="auto">
+                <script type="text/javascript" src="imageTest.js"></script>
+                </script>
                 <script>
                     function what() {
                       alert("UMMMMMM");
                     }
                 </script>
-                <noscript>did you  a big nono?</noscript>
-                <map name="map">
+                <noscript>Darn, your browser doesn't allow JavaScript.</noscript>
+                <map id="thisId" name="map">
                   <!--x,y,radius-->
-                  <area shape="circle" coords="1000,660,3" alt="???" href="random.html" onclick="what()">
+                  <area shape="circle" coords="1000,660,9" alt="???" href="random.html" onclick="what()">
                 </map>
-            <p id="Bottom">This is the bottom of the page</p>
-            
+            <p id="Bottom">You have made it to the bottom of the page! :D</p>
+            <div class="bLinks">
+                <!--Links would go here-->
+            </div>
         </div>
   </body>
 </html>
