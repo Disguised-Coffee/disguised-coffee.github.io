@@ -61,5 +61,6 @@ p{
 .head1{
     font-size: 5vw;
     text-align:center;
-    font-family: Verdana, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
+	font-style: italic;
 }
