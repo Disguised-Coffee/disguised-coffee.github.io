@@ -7,7 +7,7 @@
     <body class="background">
     <!--Top Bar-->
         <ul class="topBar">
-            <li class="barButton"><a href="index.html" title="Back to homepage">home</a></li>
+            <li class="barButton"><a href="" title="Back to homepage">Disguised_Coffee</a></li>
             <li class="barButton" id="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
             <li class="barButton" id="headerLast"><a href="#AboutMe" title="About Me">About Me</a></li>
         </ul>
@@ -19,28 +19,30 @@
         <div class="innerPage">
             <article id="AboutMe">
                 <h3 >About me</h3>
-                <p>Disguised_Coffee (presented as Disguised-Coffee) is a beginning programmer, interested in building applications, video games, and software programs. He currently works with HTML, CSS, Java, and Python. Aside from programming, he also free-draws cars and buildings and is in the process of learning how to create 3D objects with Blender. His other interests involve cars, plants, and the horror genre.
-                </p>
+                <!--Temp image: https://flic.kr/p/2hPcPPZ-->
+                <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="30%" height="auto" style="float:right; margin-left:1.5vw; margin-right:1.5vw">
+                    <script type="text/javascript" src="imageTest.js"></script>
+                    </script>
+                    <script>
+                        function what() {
+                          alert("UMMMMMM");
+                        }
+                    </script>
+                    <noscript><br>Darn, your browser doesn't allow JavaScript.<br></noscript>
+                    <map id="thisId" name="map">
+                      <!--x,y,radius-->
+                      <area shape="circle" coords="1000,660,9" alt="???" href="./assets/random.html" onclick="what()">
+                    </map>
+                <p>Disguised_Coffee (presented as Disguised-Coffee) is a beginning programmer, interested in building applications, video games, and software programs. He currently works with HTML, CSS, Java, and Python. Aside from programming, he also free-draws cars and buildings and is in the process of learning how to create 3D objects with Blender. His other interests involve cars, plants, and the horror genre.</p>
+                
+                
             </article>
-            <article id="Projects">
+            <article>
                 <h3>My Projects</h3>
                 <p>A public selection of projects I am working or have worked on.</p>
+                <a class="linkButton" href="projects.html" title="Projects">To Projects Page</a>
             </article>
-            <!--https://flic.kr/p/2hPcPPZ-->
-            <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="90%" height="auto">
-                <script type="text/javascript" src="imageTest.js"></script>
-                </script>
-                <script>
-                    function what() {
-                      alert("UMMMMMM");
-                    }
-                </script>
-                <noscript><br>Darn, your browser doesn't allow JavaScript.<br></noscript>
-                <map id="thisId" name="map">
-                  <!--x,y,radius-->
-                  <area shape="circle" coords="1000,660,9" alt="???" href="./assets/random.html" onclick="what()">
-                </map>
-            <p id="Bottom">You have made it to the bottom of the page! :D</p>
+            <p id="Bottom"><br><br>You have reached bottom of the page! :D</p>
             
         </div>
         <div class="bLinks">

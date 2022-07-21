@@ -19,7 +19,7 @@
 .barButton{
     float: left;
 }
-li a{
+.topBar li a{
   display: block;
   color: white;
   text-align: center;
@@ -84,56 +84,21 @@ p{
     /*light*/
     background-color:#f2f3f5;
 }
+.linkButton{
+    display:block;
+    background-color:#4a86e8;
+    color: white;
+    font-size:2.1vw;
+    overflow: hidden;
+    margin: 10px 2px;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-family:arial;
+}
 .bLinks{
     background: rgba(166, 165, 181, .95);
     border-top:1vw solid #4a86e8;
     margin: -9px -8px -8px -8px;
     padding:10px 11px 31px 10px;
-}
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-left:none;
-}
-h3{
-    font-size:4vw;
-    margin-bottom:0px;
-}
-p{
-    font-size:2vw;
-}
-.headerLast{
-    float:right;
-    border-left:1px solid #bbb;
-}
-.background{
-    /*background-image:url(https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;*/
-    /*Dark background colors*/
-    background-color:#66594d;
-    background-color:#2b2621;
-    background-color:#1a1613;
-    color:#ededed;
-    /*Light background colors*/
-    background-color:white;
-    color:black;
-}
-.innerPage{
-    margin: 8vw 4vw 30px 4vw;
-    padding-top:10px;
-    padding-right:11px;
-    padding-left:31px;
-    padding-bottom:10px;
-    /*Dark*/
-    background-color:#2b2621;
-    /*light*/
-    background-color:#f2f3f5;
-}
-.head1{
-    font-size: 5vw;
-    text-align:center;
-    font-family: Helvetica, sans-serif;
-	font-style: italic;
 }
