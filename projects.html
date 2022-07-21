@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Disguised_Coffee - Home</title>
+        <title>Disguised_Coffee - Projects</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            div.projectArea article h3{
+                font-size:3.1vw;
+                margin-top:1vw;
+            }
+            img{
+                float:right;
+            }
+            .projectLink{
+                display:block;
+                background-color:#4a86e8;
+                color: white;
+                font-size:2.1vw;
+                overflow: hidden;
+                margin: 10px 2px;
+                padding: 15px 32px;
+                text-align: center;
+                display: inline-block;
+                font-family:arial;
+            }
+            /*one project div*/
+            .projectArea{
+                background-color:#FFFFFF;
+                border-top:1vw solid #4a86e8;
+                padding:1vw 1vw 4vw 1vw;
+                margin-bottom:2vw;
+            }
+        </style>
     </head>
     <body class="background">
     <!--Top Bar-->
         <ul class="topBar">
-            <li><a href="index.html" title="Home">home</a></li>
-            <li class="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
-            <li class="headerLast"><a href="index.html#AboutMe" title="About Me">About Me</a></li>
+            <li class="barButton"><a href="index.html" title="Back to homepage">home</a></li>
+            <li class="barButton" id="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
+            <li class="barButton" id="headerLast"><a href="index.html#AboutMe" title="About Me">About Me</a></li>
         </ul>
     <!--Actual body-->
         
@@ -17,19 +45,49 @@
           My Projects
         </h1>
         <div class="innerPage">
-            <article id="AboutMe">
+            <article>
                 <h3>About me</h3>
-                <p>A collection of public projects.</p>
+                <p style="margin-bottom:1.2vw;">A collection of public projects. Most of these will have a github repository connected to them</p>
             </article>
-            <div class="bLinks">
-                <p>
-				<a href="index.html">Home</a><br>
-				<a href="projects.html">Projects</a><br>
-				<a href="credits.html">Credits / Acknowledgements</a><br>
-				<a href="https://pages.github.com/">Link to Github Pages</a><br>
-				<a href="https://github.com/Disguised-Coffee">My Profile</a><br>
-				</p>
+            <div class="projectArea">
+                <article>
+                    <h3>disguised-coffee.github.io</h3>
+                    <img src="" alt="an image">
+                        <p>Also known as <i>"Project Github Website"</i>, this website...</p>
+                </article>
+                <a class="projectLink" href="https://github.com/Disguised-Coffee/disguised-coffee.github.io" title="Github Repository">To Github Repository</a>
+                
             </div>
+            <div class="projectArea">
+                <article>
+                    <h3>High School Project</h3>
+                    <img src="" alt="an image">
+                        <p>Project desc.</p>
+                </article>
+                <a class="projectLink" href="" title="Github Repository">To Github Repository</a>
+                
+            </div>
+            <!--Template
+                <div class="projectArea">
+                    <article>
+                        <h3>Project Project</h3>
+                        <img src="" alt="an image">
+                            <p>Project desc.</p>
+                    </article>
+                    <a class="projectLink" href="" title="Github Repository">To Github Repository</a>
+                </div>
+            -->
+        </div>
+        <div class="bLinks">
+            <!--Fix this section []-->
+            <p>
+    			<a href="index.html">Home</a><br>
+    			<a href="projects.html">Projects</a><br>
+    			<a href="credits.html">Credits / Acknowledgements</a><br>
+    			<a href="https://pages.github.com/">Link to Github Pages</a><br>
+    			<a href="https://github.com/Disguised-Coffee">My Profile</a><br>
+			<p>
+			<p style="font-size:1.25vw;float:right">Website made by Disguised_Coffee</p>
         </div>
   </body>
 </html>

@@ -7,9 +7,9 @@
     <body class="background">
     <!--Top Bar-->
         <ul class="topBar">
-            <li><a href="index.html" title="Back to homepage">home</a></li>
-            <li class="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
-            <li class="headerLast"><a href="#AboutMe" title="About Me">About Me</a></li>
+            <li class="barButton"><a href="index.html" title="Back to homepage">home</a></li>
+            <li class="barButton" id="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
+            <li class="barButton" id="headerLast"><a href="#AboutMe" title="About Me">About Me</a></li>
         </ul>
     <!--Actual body-->
         
@@ -27,7 +27,7 @@
                 <p>A public selection of projects I am working or have worked on.</p>
             </article>
             <!--https://flic.kr/p/2hPcPPZ-->
-            <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="100%" height="auto">
+            <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="90%" height="auto">
                 <script type="text/javascript" src="imageTest.js"></script>
                 </script>
                 <script>
@@ -35,21 +35,24 @@
                       alert("UMMMMMM");
                     }
                 </script>
-                <noscript>Darn, your browser doesn't allow JavaScript.</noscript>
+                <noscript><br>Darn, your browser doesn't allow JavaScript.<br></noscript>
                 <map id="thisId" name="map">
                   <!--x,y,radius-->
                   <area shape="circle" coords="1000,660,9" alt="???" href="./assets/random.html" onclick="what()">
                 </map>
             <p id="Bottom">You have made it to the bottom of the page! :D</p>
-            <div class="bLinks">
-                <p>
-				<a href="index.html">Home</a><br>
-				<a href="projects.html">Projects</a><br>
-				<a href="credits.html">Credits / Acknowledgements</a><br>
-				<a href="https://pages.github.com/">Link to Github Pages</a><br>
-				<a href="https://github.com/Disguised-Coffee">My Profile</a><br>
-				</p>
-            </div>
+            
+        </div>
+        <div class="bLinks">
+            <!--Fix this section []-->
+            <p>
+    			<a href="index.html">Home</a><br>
+    			<a href="projects.html">Projects</a><br>
+    			<a href="credits.html">Credits / Acknowledgements</a><br>
+    			<a href="https://pages.github.com/">Link to Github Pages</a><br>
+    			<a href="https://github.com/Disguised-Coffee">My Profile</a><br>
+			<p>
+			<p style="font-size:1.25vw;float:right">Website made by Disguised_Coffee</p>
         </div>
   </body>
 </html>
