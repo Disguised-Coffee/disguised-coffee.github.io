@@ -1,0 +1,87 @@
+/* .image { width: 353px; height: 300px;}.image .rectangle { position: fixed; width: 353px; height: 300px; top: 0; left: 0; object-fit: cover;} */
+
+
+
+
+.card-img-overlay { 
+display: inline-flex;
+ flex-direction: column;
+ height: 300px;
+ align-items: flex-start;
+ position: relative;
+ border-radius: 12px;
+ overflow: hidden;
+}
+.card-img-overlay .overlay { 
+position: relative;
+ flex: 1;
+ width: 353px;
+ flex-grow: 1;
+ background-image: url(https://th.bing.com/th/id/OIP.nU-rsBSnmniymWfZOZQtkQHaE8?rs=1&pid=ImgDetMain);
+ background-size: cover;
+ background-position: 50% 50%;
+}
+.card-img-overlay .overlay-content { 
+display: inline-flex;
+ flex-direction: column;
+ height: 250px;
+ align-items: flex-start;
+ gap: 13px;
+ position: relative;
+ top: 32px;
+ left: 22px;
+}
+.card-img-overlay .text-wrapper { 
+position: relative;
+ width: fit-content;
+ margin-top: -1px;
+ font-family: "Inter-ExtraBold", Helvetica;
+ font-weight: 800;
+ color: white;
+ font-size: 24px;
+ letter-spacing: 0;
+ line-height: normal;
+}
+.card-img-overlay .this-is-a-wider-card { 
+position: relative;
+ width: 310px;
+ font-family: "Inter-Regular", Helvetica;
+ font-weight: 400;
+ color: white;
+ font-size: 16px;
+ letter-spacing: 0;
+ line-height: 24px;
+}
+.card-img-overlay .div { 
+position: relative;
+ width: fit-content;
+ font-family: "Inter-Regular", Helvetica;
+ font-weight: 400;
+ color: white;
+ font-size: 12px;
+ letter-spacing: 0;
+ line-height: normal;
+}
+.card-img-overlay .dark-mode-button { 
+display: inline-flex;
+ height: 38px;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ padding: 2px 16px;
+ position: relative;
+ background-color: #426b1f;
+ border-radius: 8px;
+ overflow: hidden;
+}
+.card-img-overlay .text-wrapper-2 { 
+position: relative;
+ width: 135px;
+ font-family: "Inter-SemiBold", Helvetica;
+ font-weight: 600;
+ color: #ffffff;
+ font-size: 16px;
+ text-align: center;
+ letter-spacing: 0;
+ line-height: 20.8px;
+}

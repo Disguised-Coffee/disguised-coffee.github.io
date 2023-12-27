@@ -1,0 +1,170 @@
+:root {
+  font-size: 16px; /* configure this if needed */
+}
+
+body{
+  scroll-behavior: smooth;
+}
+
+.topBar{
+  position:fixed;
+  width:100%;
+  left:0;
+  height:2vh;
+  width:100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 1.6rem 1.6rem 1.6rem 0.5rem; /* top | right | bottom | left */
+  overflow: hidden;
+  background-color:#467AFF;
+  position: fixed;
+  top:0;   
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  text-decoration:none !important;
+  box-shadow: 0px 4px 0px 0px #2844be;
+  z-index: 1;
+}
+
+.centerLogo{
+  padding-left: 100px;
+  transition: padding-left 200ms;
+}
+
+.resetLogo{
+  padding-left: 0.5vw;
+  transition: padding-left 200ms;
+}
+
+.topBarList{
+  list-style-type: none;
+  margin: 16px 16px;
+  padding:0;
+  display: flex;
+  align-items: center;
+}
+
+/* For hiding things */
+.hide{
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 200ms, opacity 200ms linear;
+}
+
+img .hide {
+  /* display: none; */
+  display: none;
+  transition: display 0s 200ms, opacity 200ms linear;
+}
+
+.show{
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s 250ms opacity 20ms linear;
+}
+
+img .show{
+  display: contents;
+  transition: opacity 20ms linear;
+}
+
+
+
+.topBar li a{
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family:ibm;
+  font-size:1.2rem;
+  font-family: IBM Plex Sans, 'Sans Seriff';
+  font-style: italic;
+}
+.topBar #toggleUiMode{
+  margin-left: 1vw;
+  transition: all 0.3s;
+  appearance: none;
+  background-color: #426B1F;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 0.375rem;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.topBar #toggleUiMode:hover{
+  background-color: #2ea44f;
+}
+
+.barButton{
+  float: left;
+  transition: all 0.3s;
+  border-radius: 2px;
+  padding: 2vh 2vh; /* top | right | bottom | left */
+  /* border-bottom: solid 10px #ffffff; */
+}
+
+.barButton:hover{
+  background-color:#6591ff;
+  text-shadow: 0px 1px 0px #000000;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border-bottom: #ffffff;
+}
+
+.dcLogo{
+  padding: 0 0 0 2vw;
+  transition: padding 500ms;
+}
+
+.dcLogo .show{
+  padding-left: 0;
+  transition: padding-left 500ms;
+}
+
+.dcLogo img{
+  max-width:100%;
+  margin-top: -0.5625rem;
+  height: 6vh; 
+  padding-right: 1rem;
+}
+
+.dcLogo .onScrollRule img{
+  display:block;
+}
+
+.dcLogoText:hover{
+  background-color:#6591ff;
+}
+
+.dcLogoText{
+  padding: 0.5vw 0.5vw;
+  text-shadow: 0px 2px 0px #000000;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #ffffff;
+  font-size: 2rem;
+  letter-spacing: -0.32px;
+  line-height: 32px;
+  white-space: nowrap;
+  text-decoration:none;
+  display: flex;
+  align-items: center;
+}

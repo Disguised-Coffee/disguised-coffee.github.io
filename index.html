@@ -1,60 +1,116 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Disguised_Coffee - Home</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body class="background">
-    <!--Top Bar-->
-        <ul class="topBar">
-            <li class="barButton"><a href="" title="Back to homepage">Disguised_Coffee</a></li>
-            <li class="barButton" id="headerLast"><a href="projects.html" title="My Projects">Projects</a></li>
-            <li class="barButton" id="headerLast"><a href="#AboutMe" title="About Me">About Me</a></li>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home ~ Disguised_Coffee </title>
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/topBar.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/scrollBar.css">
+    <link rel="stylesheet" href="css/mainPage.css">
+    <link rel="stylesheet" href="css/card.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,italic|Inter:500,400,600,200,italic|IBM+Plex+Sans:500,italic">
+    <!-- imports JS file -->
+    <script defer src="js/topBar.js"></script>
+
+</head>
+<body>
+    <nav class="topBar resetLogo">
+        <div class="dcLogo">
+          <a class="dcLogoText" href="" title="Back to homepage">
+            <img class="hide" src="assets/Coffee2wtrace.png" >
+            <p>Disguised_Coffee</p>
+          </a>
+        </div>
+        <ul class="topBarList">
+          <li class="barButton"><a href="projects.html" title="My Projects">Projects</a></li>
+          <li class="barButton"><a href="aboutMe.html" title="About Me">About Me</a></li>
+          <li> <a href="contacts.html"><button id="toggleUiMode">Contact Me!</button></a></li>
         </ul>
-    <!--Actual body-->
-        
-        <h1 class="head1">
-          HELLO WORLD FROM DISGUISED_COFFEE
-        </h1>
-        <div class="innerPage">
-            <article id="AboutMe">
-                <h3 >About me</h3>
-                <!--Temp image: https://flic.kr/p/2hPcPPZ-->
-                <img id="thisImage" src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" usemap="#map" width="30%" height="auto" style="float:right; margin-left:1.5vw; margin-right:1.5vw">
-                    <script type="text/javascript" src="imageTest.js"></script>
-                    </script>
-                    <script>
-                        function what() {
-                          alert("UMMMMMM");
-                        }
-                    </script>
-                    <noscript><br>Darn, your browser doesn't allow JavaScript.<br></noscript>
-                    <map id="thisId" name="map">
-                      <!--x,y,radius-->
-                      <area shape="circle" coords="1000,660,9" alt="???" href="./assets/random.html" onclick="what()">
-                    </map>
-                <p>Disguised_Coffee (presented as Disguised-Coffee) is a beginning programmer, interested in building applications, video games, and software programs. He currently works with HTML, CSS, Java, and Python. Aside from programming, he also free-draws cars and buildings and is in the process of learning how to create 3D objects with Blender. His other interests involve cars, plants, and the horror genre.</p>
-                
-                
-            </article>
-            <article>
-                <h3>My Projects</h3>
-                <p>A public selection of projects I am working or have worked on.</p>
-                <a class="linkButton" href="projects.html" title="Projects">To Projects Page</a>
-            </article>
-            <p id="Bottom"><br><br>You have reached bottom of the page! :D</p>
-            
+      </nav>
+    <div class="container main-page">
+        <img src="https://live.staticflickr.com/65535/49104583267_5517695e82_5k.jpg" alt="Snow">
+        <div class="center-text animated">“hello world”<br>&emsp; FROM DISGUISED_COFFEE</div>
+        <div class="blah-container">
+            <p><span class="blah">Student Programmer now,<br></span>
+            <span class="blah-2">Computer Engineer to be.</span></p>
+            <button class="blah">Learn more about me!</button>
         </div>
-        <div class="bLinks">
-            <!--Fix this section []-->
+    </div>
+    <div class="content main-page">
+        <section style="margin-top: 2vh;">
+          <h1 style="margin-right: 1vw;">
+            Project Highlights
+          </h1>
+          <p>
+            A few of my own projects from my collection of public projects! 
+          </p>
+        </section>
+        <section>
+          <div class="card-horizontal"> 
+            <div class="img"><img class="rectangle" src="https://www.tripsavvy.com/thmb/U_yL9LKvcMWOoOSaDa9xiO-ZhBI=/3936x2624/filters:no_upscale():max_bytes(150000):strip_icc()/DSC_6138-9d31715bdd2449e6a251f519b26a82ae.jpg" /></div> 
+            <div class="content"> 
+                <div class="text-wrapper">Project Name</div> 
+                <div class="stack"> 
+                    <p class="div"> 
+                    This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p> 
+                    <p class="p">Last Updated as of 11/25/23</p> 
+                </div> 
+            </div> 
+          </div> 
+          <div class="card-horizontal"> 
+            <div class="img"><img class="rectangle" src="https://www.tripsavvy.com/thmb/U_yL9LKvcMWOoOSaDa9xiO-ZhBI=/3936x2624/filters:no_upscale():max_bytes(150000):strip_icc()/DSC_6138-9d31715bdd2449e6a251f519b26a82ae.jpg" /></div> 
+            <div class="content"> 
+                <div class="text-wrapper">Project Name</div> 
+                <div class="stack"> 
+                    <p class="div"> 
+                    This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p> 
+                    <p class="p">Last Updated as of 11/25/23</p> 
+                </div> 
+            </div> 
+          </div> 
+        </section>
+        <section>
+          <div style="display: flex;flex-direction: column;align-items: center;">
+            <p style="margin: 2% 0;">Want to see more?</p>
+            <a href="projects.html"><button style="margin: 3% 0;"><i>Go to projects page</i></button></a>
+          </div>
+        </section>
+        <div class="bottom-bar">
+          <svg class="blue-poly" viewBox="0 0 654 30" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 0H654L604.093 30H0V0Z" fill="#467AFF"/>
+          </svg>
+          <div class="watermark">
+            <img src="assets/Coffee2wtrace.png"/>
+          </div>
+          <div class="bottom-logo">
             <p>
-    			<a href="index.html">Home</a><br>
-    			<a href="projects.html">Projects</a><br>
-    			<a href="credits.html">Credits / Acknowledgements</a><br>
-    			<a href="https://pages.github.com/">Link to Github Pages</a><br>
-    			<a href="https://github.com/Disguised-Coffee">My Profile</a><br>
-			<p>
-			<p style="font-size:1.25vw;float:right">Website made by Disguised_Coffee</p>
+              Website made by Disguised_Coffee
+            </p>
+          </div>      
+        <div class="bottom-bar-content">    
+          <ul class="bottom-bar-navi">
+            <li><a>Home</a></li>
+            <li><a>Projects</a></li>
+            <li><a>Credits</a></li>
+            <li><a>Contacts</a></li>
+            <li><a>My Github Profile</a></li>
+          </ul>
+          <div class="git-contrib">
+            <img src="https://pngimg.com/uploads/github/github_PNG53.png" height="10%"/>
+            <h2>
+              This website is hosted on GitHub
+            </h2>
+            <p>
+              learn how to do yours at <a href="https://pages.github.com/">https://pages.github.com/</a>
+            </p>
+          </div>
+          
         </div>
-  </body>
+      </div>
+      </div>
+</body>
 </html>

@@ -1,0 +1,41 @@
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-image {
+    /* The image used */
+    background-image: url("https://th.bing.com/th/id/R.671eb7d7a491e7bde94c78d26eff18c3?rik=EJM3NdV%2fmlhiuA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-hFF2bgoP8gI%2fUPpZhYEjBtI%2fAAAAAAAACHw%2f_QDS_oIg4Dc%2fs1600%2fForbidden%2bCity%2bBeijing%2bShenwumen%2bGate.JPG&ehk=1IN6td8a54Ao9qM9Pf5G%2f8LHi2vdl%2fzjXB3VW%2fvFRbI%3d&risl=&pid=ImgRaw&r=0");
+  
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
