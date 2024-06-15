@@ -1,0 +1,35 @@
+[
+    { 
+        "name": "blah",
+        "dn":"project-blah",
+        "tech":[
+            "tech1",
+            "tech2"
+        ],
+        "date": {
+            "begin":"Jan 1",
+            "end":"Dec 31",
+            "ongoing": true,
+            "singleDate": false
+        },
+        "desc": {
+            "paragraph": "lorem",
+            "caption": "lorem"
+        },
+        "misc":[
+            {
+                "src": "https://localhost.no",
+                "type": "Localhost"
+            },
+            {
+                "src": "https://youtube.com",
+                "type": "Video"
+            },
+            {
+                "src": "https://google.com/images",
+                "type": "image"
+            }
+        ],
+        "isHighlight": true
+    }
+]

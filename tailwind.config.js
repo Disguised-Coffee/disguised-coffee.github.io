@@ -12,6 +12,18 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors:{
+        "topBar":"var(--topbar-color)",
+        "shadow": "var(--main-text-highlight)",
+        "main": "var(--main-color)",
+        "accent": "var(--accent)",
+      },
+      fontFamily:{
+        'IBM': 'IBM Plex Sans',
+      },
+      dropShadow:{
+        "highlight":'2px 1px 2px var(--main-text-highlight)',
+      }
     },
   },
   plugins: [],

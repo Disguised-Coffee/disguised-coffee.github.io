@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --topbar-color: #05091C;
+  --main-text-highlight: #39D85C;
+  --main-color: #467AFF;
+  --accent: #28448E;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,18 +18,30 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+@layer components {
+  .btn {
+    background-color: theme('colors.main');
+    border-radius: 4px;
+  }
+  /* 
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  ... */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+.drop-shadow-custom{
+  filter: drop-shadow(0 7px 6px var(--main-color))
+}
+
+/* custom css for page to combat overscroll effects */
+body {
+  /* annoying overflow on coding page. */
+  overflow-x: hidden;
+
+  /* prevents user from look beyond scroll area (try using edge and commenting line below) */
+  overscroll-behavior: none;
 }
