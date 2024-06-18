@@ -17,6 +17,7 @@ module.exports = {
         "shadow": "var(--main-text-highlight)",
         "main": "var(--main-color)",
         "accent": "var(--accent)",
+        "void": "var(--void)"
       },
       fontFamily:{
         'IBM': 'IBM Plex Sans',
