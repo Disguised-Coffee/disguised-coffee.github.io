@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <div className="[overflow-y:_scroll] [scroll-snap-type:_y_mandatory] w-[100vw]">
+      <div className="[overflow-y:_scroll] [scroll-snap-type:_y_mandatory] w-[100vw] h-[100vh]">
         <Page />
         <Content />
       </div>
