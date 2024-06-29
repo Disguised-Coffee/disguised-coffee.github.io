@@ -32,5 +32,27 @@
             }
         ],
         "isHighlight": true
+    },
+    { 
+        "image": {
+            "src": "np_file_17300.jpeg",
+            "alt": "a testing image"
+        },
+        "name": "Project-Reactive-Test",
+        
+        "tech":[
+            "react",
+            "node",
+            "figma"
+        ],
+        "date": {
+            "begin":"June 2024",
+            "ongoing": true
+        },
+        "desc": {
+            "paragraph": "Personal portfolio redesigned in React",
+            "caption": "so updating is easier"
+        },
+        "isHighlight": true
     }
 ]

@@ -1,8 +1,11 @@
+import React from "react";
 import data from "./TestMe.json"
 import Card from "@/components/cards";
 
-const Content = () => {
-    console.log(data);
+const Content = ({
+    changeHC
+}) => {
+    let key_ = -1;
 
     return (
         <div className="pt-[10vh] flex-col
@@ -15,13 +18,13 @@ const Content = () => {
             </div>
             <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh]">
                 {
-
                     data.map((obj) => {
-                        console.log(obj);
+                        key_++;
+                        console.log(key_);
                         return (
-                            <>
-                                <Card image={obj.image} title={obj.name} dn={obj.dn} tech={obj.tech} />
-                            </>
+                            <React.Fragment key={key_}>
+                                <Card image={obj.image} title={obj.name} dn={obj.dn} tech={obj.tech} us={changeHC} key={key_}/>
+                            </React.Fragment>
                         )
                     })
                 }

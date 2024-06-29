@@ -35,12 +35,12 @@ const NavBar = () => {
       <ul className="absolute right-0 top-0 flex flex-center h-[8vh] items-center">
         {navBarSlideButtons.map((obj) => {
           return (
-            <li className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText} key={(obj.id).toString()}>{obj.text}</a>
+            <li key={obj.id} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>
               {/* {console.log(obj.id)} */}
             </li>
           )
         })}
-        <li className="p-[2vh]" key={(cumulativeID + 1).toString()}><button className='btn'>Switch UI Mode</button></li>
+        <li className="p-[2vh]" key={(cumulativeID + 1)}><button className='btn'>Switch UI Mode</button></li>
       </ul>
     </nav>
   )

@@ -1,12 +1,49 @@
 import React from "react";
 import Link from "next/link";
-
 import Image from "next/image";
+import { activateOverlay } from "./overlay";
 
 let counter = 0;
 
 const makeTechList = (array) => {
     let toR;
+}
+
+function ReturnFileName(element) {
+    // console.log(element);
+    let j;
+    switch (element) {
+        case "css":
+            j = "css-3";
+            break;
+        case "html":
+            j = "html-5";
+            break;
+        case "js":
+            j = "js";
+            break
+        case "java":
+            j = "java";
+            break
+        case "node":
+            j = "nodejs";
+            break;
+        case "figma":
+            j = "figma";
+            break;
+        case "python":
+            j = "python";
+            break
+        case "react":
+            j = "react";
+            break
+        case "vite":
+            j = "vite";
+            break
+        default:
+            return "";
+    }
+    return j
 }
 
 /**
@@ -27,30 +64,41 @@ const Card = ({
     image,
     title,
     dn,
-    tech
-
+    tech,
+    us
 }) => {
     counter++;
 
-    console.log(tech);
+    let DesignationName = ()=>{
+        if(dn){
+            return(
+                <h3 className="pt-[0.25rem] text-[0.76rem] italic">
+                        {("\"" + dn + "\"")}
+                </h3>
+            )
+        }
+        else{
+            return;
+        }
+    }
+
+    let key = -1;
 
     return (
-        <div
-            className="w-auto relative m-2 aspect-[301.92/306.06] 
+        <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
-                          shadow-[10px_10px_0px_#3E3D3D]">
+                          shadow-[10px_10px_0px_#3E3D3D]" onClick={() =>{ us(title)}}>
             <img className="h-full w-full filter brightness-50 " src={image.src} alt={image.alt ? image.alt : ("project" + counter)} />
             <div className="text-white [text-shadow:_2px_2px_0px_#000000] absolute top-0 right-0 bottom-0 left-0 p-4 z-[1] flex items-center justify-center flex-col">
                 {/* Title of project */}
                 <h2
                     className="text-white font-bold m-0 
-                                text-[1.7rem] w-max">
+                                text-[1.7rem] w-[100%] text-center">
                     {title}
                 </h2>
                 {/* designation name []*/}
-                <h3 className="pt-[0.25rem] text-[0.76rem] italic">
-                    {("\"" + dn + "\"")}
-                </h3>
+                <DesignationName/>
+
             </div>
             {/* div for absolute stuff */}
             <div className="absolute h-full w-full z-[0] top-[0] flex justify-center">
@@ -60,32 +108,25 @@ const Card = ({
                     <div className="flex jusify-center h-max">
                         {
                             tech.map((element) => {
-                                console.log(element);
-                                let j;
-                                switch (element) {
-                                    case "css":
-                                        j = "css-3";
-                                        break;
-                                    case "html":
-                                        j = "html-5";
-                                        break;
-                                    case "js":
-                                        j = "js";
-                                        break
-                                    default:
-                                        return (
-                                            <div></div>
-                                        );
+                                let r = ReturnFileName(element);
+                                if (r === "") {
+                                    return (
+                                        <div></div>
+                                    );
                                 }
-                                return (
-                                    <Image
-                                        priority
-                                        src={"/icons/" + j + ".svg"}
-                                        height={32}
-                                        width={32}
-                                        alt={j}
-                                    />
-                                )
+                                else {
+                                    key++;
+                                    return (
+                                        <Image
+                                            priority
+                                            src={"/icons/" + r + ".svg"}
+                                            height={32}
+                                            width={32}
+                                            alt={r}
+                                            key={key}
+                                        />
+                                    )
+                                }
                             })
                         }
                     </div>
