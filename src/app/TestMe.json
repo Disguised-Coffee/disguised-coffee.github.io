@@ -23,8 +23,14 @@
         },
         "misc": [
             {
-                "src": "https://localhost.no",
-                "type": "Localhost"
+                "src": "https://localhost.5500",
+                "type": "site",
+                "display": "localhost"
+            },
+            {
+                "src": "https://localhost.3000",
+                "type": "site",
+                "display": "localhost"
             },
             {
                 "src": "https://youtube.com",

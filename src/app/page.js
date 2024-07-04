@@ -17,16 +17,16 @@ const Page = () => {
 }
 
 export default function Home() {
-  let [hoverContent,changeHC] = useState("na");
+  let [hoverContent,changeHC] = useState("testing project");
   
   return (
     <>
       <NavBar />
       <Overlay hc={hoverContent}/>
-      <div className="[overflow-y:_scroll] [scroll-snap-type:_y_mandatory] w-[100vw] h-[100vh]">
+      {/* <div className="[overflow-y:_scroll] [scroll-snap-type:_y_mandatory] w-[100vw] h-[100vh]">
         <Page />
         <Content changeHC={changeHC}/>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -8,10 +8,13 @@
   --main-color: #467AFF;
   --accent: #28448E;
   --void: #25252F;
+  --overlay: #1E1E1E;
+  --overlay-highlight: #343434;
+  --link-color: #0047FF;
 
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -25,6 +28,7 @@
     background-color: theme('colors.main');
     border-radius: 4px;
   }
+
   /* 
     background-color: theme('colors.white');
     border-radius: theme('borderRadius.lg');
@@ -34,7 +38,7 @@
 }
 
 
-.drop-shadow-custom{
+.drop-shadow-custom {
   filter: drop-shadow(0 7px 6px var(--main-color))
 }
 
@@ -45,4 +49,31 @@ body {
 
   /* prevents user from look beyond scroll area (try using edge and commenting line below) */
   overscroll-behavior: none;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 2;
+}
+
+.innerOverlay {
+  display: flex;
+  height: 50vh;
+  padding: 1%;
+  background-color: var(--overlay);
+  color: white;
+  width: 55vw;
+  font-size: 2.5rem;
+}
+
+.overlayContainer{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%; 
 }
