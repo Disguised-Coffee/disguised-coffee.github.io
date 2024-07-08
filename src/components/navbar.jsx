@@ -32,7 +32,7 @@ const NavBar = () => {
         <Image ref={logo} className="h-[3rem] max-w-full w-auto pr-[10px]" src={dcLogo} alt="hi" />
         <h1 ref={logoText} className="text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
-      <ul className="absolute right-0 top-0 flex flex-center h-[8vh] items-center">
+      <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
         {navBarSlideButtons.map((obj) => {
           return (
             <li key={obj.id} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>

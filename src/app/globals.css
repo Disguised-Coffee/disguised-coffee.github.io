@@ -64,9 +64,11 @@ body {
   display: flex;
   height: 50vh;
   padding: 1%;
+  padding-left: 3vw;
+  padding-right: 3vw;
   background-color: var(--overlay);
   color: white;
-  width: 55vw;
+  /* width: 55vw;  we'll use a media query in TW*/
   font-size: 2.5rem;
 }
 
@@ -75,5 +77,8 @@ body {
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  top: 50%; 
+}
+
+.test{
+  background-color: red;
 }
