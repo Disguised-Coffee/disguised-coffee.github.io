@@ -1,5 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import data from "../app/TestMe.json"
+import Link from "next/link";
 
 
 /*
@@ -44,16 +45,28 @@ function OverlayContent(props) {
     try {
         return (
             <>
-                <div>
-                    {/* header */}
-                    <div className="font-[Lato]">
-                        <h1 className="text-[3.5rem] italic">{data[props.index].name}</h1>
-                        <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
-                            {(data[props.index].date.singleDate ? data[props.index].date.singleDate : (`${data[props.index].date.begin} - ${data[props.index].date.end}`))}
-                        </h2>
+                <div className="w-full flex">
+                    <div className="w-1/2">
+                        {/* header */}
+                        <div className="font-[Lato]">
+                            <h1 className="text-[3.5rem] italic">{data[props.index].name}</h1>
+                            <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
+                                {(data[props.index].date.singleDate ? data[props.index].date.singleDate : (`${data[props.index].date.begin} - ${data[props.index].date.end}`))}
+                            </h2>
+                        </div>
+                        <div className=" text-[1.8rem]">
+                            <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
+                                {`(${data[props.index].desc.caption})`}
+                            </h3>
+                            <p className="font-medium leading-9">
+                                {data[props.index].desc.paragraph}
+                            </p>
+                        </div>
                     </div>
-                    <div>
-
+                    <div className="w-1/2">
+                        <div className="flex justify-end">
+                            BLAH
+                        </div>
                     </div>
                 </div>
             </>
@@ -68,20 +81,24 @@ function OverlayContent(props) {
         )
     }
 }
+/**
+ * 
+ * @param {*} (props) index: index of the data json array to pull from
+ * @returns 
+ */
 function OverlayBottom(props) {
     let a = [];
 
-    data[props.index].misc.forEach((blah,num) => {
+    data[props.index].misc.forEach((blah, num) => {
         a.push(
-            <div className="flex mr-1 items-center">
-                <img src={"icons/web/"+ handleBadges(blah) +".svg"} className="w-[1.6rem] filter invert" key={num}/>
-                
+            <div className="flex mr-4 items-center" key={num}>
+                <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]" />
+                <a href={blah.src} className="font-[Ubuntu] text-[var(--link-color)] underline italic text-[1.2rem]">
+                    {blah.display ? blah.display : "bruh"}
+                </a>
             </div>
         )
     });
-
-
-
     return (
         <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem]">
             {a}
@@ -100,7 +117,7 @@ function handleBadges(obj) {
             return "el"
 
         case "video":
-            return "vid"
+            return "yt"
     }
     return "no"
 }

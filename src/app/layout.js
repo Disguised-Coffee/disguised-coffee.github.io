@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:light,lightitalic,bold,bolditalic,italic%7CIBM+Plex+Sans:bold,bolditalic,italic,400%7CBree+Serif"
+          href="https://fonts.googleapis.com/css?family=Lato:light,lightitalic,bold,bolditalic,italic%7CIBM+Plex+Sans:bold,bolditalic,italic,400%7CBree+Serif%7CUbuntu:bold,bolditalic,italic"
           rel="stylesheet"
         />
       </head>

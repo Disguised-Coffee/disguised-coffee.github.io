@@ -82,8 +82,6 @@ const Card = ({
         }
     }
 
-    let key = -1;
-
     return (
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
@@ -107,7 +105,7 @@ const Card = ({
                     <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
                     <div className="flex jusify-center h-max">
                         {
-                            tech.map((element) => {
+                            tech.map((element,key) => {
                                 let r = ReturnFileName(element);
                                 if (r === "") {
                                     return (
@@ -115,7 +113,7 @@ const Card = ({
                                     );
                                 }
                                 else {
-                                    key++;
+                                    key;
                                     return (
                                         <Image
                                             priority

@@ -34,7 +34,7 @@
             },
             {
                 "src": "https://youtube.com",
-                "type": "Video"
+                "type": "video"
             }
         ],
         "isHighlight": true
