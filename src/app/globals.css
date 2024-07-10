@@ -79,6 +79,22 @@ body {
   transform: translateX(-50%);
 }
 
-.test{
-  background-color: red;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: var(--alt-bg-color);
+} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--overlay-highlight)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

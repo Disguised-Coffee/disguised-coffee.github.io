@@ -1,7 +1,5 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import data from "../app/TestMe.json"
-import Link from "next/link";
-
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -12,6 +10,16 @@ let v = false;
 const Overlay = ({
     hc
 }) => {
+    // [][][][][]  \/
+    const refTest = useRef(null);
+
+    setTimeout( ()=>{
+        console.log("bye bye")
+        refTest.current.style.display = "none";
+    }, 1000)
+
+
+
     if (!hc) {
         return;
     }
@@ -20,12 +28,21 @@ const Overlay = ({
         i++;
     }
 
+    let [blah, updateBlah] = useState(
+        data[i].dn ? ()=>{
+            setTimeout(()=>{
+                updateBlah("This is a test");
+            },5000)
+            return `"${data[i].dn}"` 
+        } : "click outside to close"
+    );
+
     return (
-        <div className="overlay">
+        <div className="overlay" ref={refTest}>
             <div className="overlayContainer">
                 {/* top bar thing for inner overlay*/}
                 <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
-                    {data[i].dn ? (`"${data[i].dn}"`) : "click outside to close"}
+                    {blah}
                 </div>
                 <div className="innerOverlay w-[100vw] xl:w-[70vw]">
                     <OverlayContent index={i} />
@@ -42,6 +59,10 @@ const activateOverlay = () => {
 }
 
 function OverlayContent(props) {
+    
+
+    
+    
     try {
         return (
             <>
@@ -50,7 +71,7 @@ function OverlayContent(props) {
                         {/* header */}
                         <div className="font-[Lato]">
                             <h1 className="text-[3.5rem] italic">{data[props.index].name}</h1>
-                            <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
+                            <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold" /*ref={refTest}*/>
                                 {(data[props.index].date.singleDate ? data[props.index].date.singleDate : (`${data[props.index].date.begin} - ${data[props.index].date.end}`))}
                             </h2>
                         </div>
@@ -58,7 +79,7 @@ function OverlayContent(props) {
                             <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
                                 {`(${data[props.index].desc.caption})`}
                             </h3>
-                            <p className="font-medium leading-9">
+                            <p className="font-medium leading-9 h-[28vh] overflow-y-auto">
                                 {data[props.index].desc.paragraph}
                             </p>
                         </div>
