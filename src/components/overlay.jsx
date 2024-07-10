@@ -13,10 +13,10 @@ const Overlay = ({
     // [][][][][]  \/
     const refTest = useRef(null);
 
-    setTimeout( ()=>{
-        console.log("bye bye")
-        refTest.current.style.display = "none";
-    }, 1000)
+    // setTimeout( ()=>{
+    //     console.log("bye bye")
+    //     refTest.current.style.display = "none";
+    // }, 1000)
 
 
 
@@ -31,14 +31,24 @@ const Overlay = ({
     let [blah, updateBlah] = useState(
         data[i].dn ? ()=>{
             setTimeout(()=>{
-                updateBlah("This is a test");
+                //do some fancy animation thing in css
+                updateBlah("click outside to close");
+                //leave this up for a sec.
+                
             },5000)
             return `"${data[i].dn}"` 
         } : "click outside to close"
     );
 
     return (
-        <div className="overlay" ref={refTest}>
+        <div className="overlay" 
+            ref={refTest} 
+            onClick={(event)=>{
+                if(event.target === event.currentTarget){
+                    console.log("hi");
+                    refTest.current.style.display = "none";
+                }
+            }}>
             <div className="overlayContainer">
                 {/* top bar thing for inner overlay*/}
                 <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
