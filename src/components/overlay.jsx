@@ -1,5 +1,7 @@
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import data from "../app/TestMe.json"
+import { ReturnFileName } from "./cards";
+import Image from "next/image";
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -7,18 +9,20 @@ import data from "../app/TestMe.json"
 
 let v = false;
 
-const Overlay = ({
-    hc
-}) => {
+let test;
+
+const Overlay = forwardRef(
+    ({ hc }, ref) => {
     // [][][][][]  \/
     const refTest = useRef(null);
 
-    // setTimeout( ()=>{
-    //     console.log("bye bye")
-    //     refTest.current.style.display = "none";
-    // }, 1000)
-
-
+    useImperativeHandle(ref, ()=> {
+        return{
+            overlayOn: () =>{
+                refTest.current.style.display = "block"
+            }
+        }
+    }, []);
 
     if (!hc) {
         return;
@@ -29,23 +33,23 @@ const Overlay = ({
     }
 
     let [blah, updateBlah] = useState(
-        data[i].dn ? ()=>{
-            setTimeout(()=>{
+        data[i].dn ? () => {
+            setTimeout(() => {
                 //do some fancy animation thing in css
                 updateBlah("click outside to close");
                 //leave this up for a sec.
-                
-            },5000)
-            return `"${data[i].dn}"` 
+            }, 5000)
+            return `"${data[i].dn}"`
         } : "click outside to close"
     );
 
+
+
     return (
-        <div className="overlay" 
-            ref={refTest} 
-            onClick={(event)=>{
-                if(event.target === event.currentTarget){
-                    console.log("hi");
+        <div className="overlay"
+            ref={refTest}
+            onClick={(event) => {
+                if (event.target === event.currentTarget) {
                     refTest.current.style.display = "none";
                 }
             }}>
@@ -62,17 +66,9 @@ const Overlay = ({
             </div>
         </div>
     )
-}
-
-const activateOverlay = () => {
-    console.log("activating!");
-}
+})
 
 function OverlayContent(props) {
-    
-
-    
-    
     try {
         return (
             <>
@@ -85,7 +81,7 @@ function OverlayContent(props) {
                                 {(data[props.index].date.singleDate ? data[props.index].date.singleDate : (`${data[props.index].date.begin} - ${data[props.index].date.end}`))}
                             </h2>
                         </div>
-                        <div className=" text-[1.8rem]">
+                        <div className="text-[1.4rem] 2xl:text-[1.8rem]">
                             <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
                                 {`(${data[props.index].desc.caption})`}
                             </h3>
@@ -95,8 +91,44 @@ function OverlayContent(props) {
                         </div>
                     </div>
                     <div className="w-1/2">
-                        <div className="flex justify-end">
-                            BLAH
+                        {/* card thingy */}
+                        <div className="flex flex-col items-end">
+                            <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
+                                Made With
+                            </h3>
+                            <div className="flex jusify-center h-max">
+                                {
+                                    data[props.index].tech.map((element, key) => {
+                                        let r = ReturnFileName(element);
+                                        if (r === "") {
+                                            return (
+                                                <div></div>
+                                            );
+                                        }
+                                        else {
+                                            key;
+                                            return (
+                                                <img
+                                                    src={"/icons/" + r + ".svg"}
+                                                    alt={r}
+                                                    key={key}
+                                                    className="pl-[4px] h-[3rem]"
+                                                />
+                                            )
+                                        }
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="flex items-end flex-col pt-[2rem]">
+                            <img
+                                // priority
+                                src={data[props.index].image.src}
+                                // width={32}
+                                // height={32}
+                                alt="shjsad"
+                                className="h-[30vh]"
+                            />
                         </div>
                     </div>
                 </div>
@@ -104,6 +136,7 @@ function OverlayContent(props) {
         )
     }
     catch (TypeError) {
+        console.log(TypeError)
         return (
             <h1 className="text-center text-[1.5rem] m-auto">
                 A problem has occured (and please tell me how)!<br />
@@ -120,6 +153,10 @@ function OverlayContent(props) {
 function OverlayBottom(props) {
     let a = [];
 
+    if(!data[props.index].misc){
+        return;
+    }
+
     data[props.index].misc.forEach((blah, num) => {
         a.push(
             <div className="flex mr-4 items-center" key={num}>
@@ -131,7 +168,7 @@ function OverlayBottom(props) {
         )
     });
     return (
-        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem]">
+        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative">
             {a}
         </div>
     )
@@ -153,4 +190,4 @@ function handleBadges(obj) {
     return "no"
 }
 
-export { Overlay, activateOverlay };
+export default Overlay;

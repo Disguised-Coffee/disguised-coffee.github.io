@@ -6,11 +6,9 @@ import dcLogo from '../../public/dcLogo.png'
 import { useRef } from 'react';
 
 const NavBar = () => {
-  let cumulativeID = 0;
+  let _;
 
   function buttonPiece(text, src, t) {
-    cumulativeID++;
-    this.id = cumulativeID;
     this.text = text;
     this.src = src;
     this.titleText = t;
@@ -33,14 +31,14 @@ const NavBar = () => {
         <h1 ref={logoText} className="text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
       <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
-        {navBarSlideButtons.map((obj) => {
+        {navBarSlideButtons.map((obj, key) => {
+          _ = key;
           return (
-            <li key={obj.id} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>
-              {/* {console.log(obj.id)} */}
+            <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>
             </li>
           )
         })}
-        <li className="p-[2vh]" key={(cumulativeID + 1)}><button className='btn'>Switch UI Mode</button></li>
+        <li className="p-[2vh]" key={(_ + 1)}><button className='btn'>Switch UI Mode</button></li>
       </ul>
     </nav>
   )
