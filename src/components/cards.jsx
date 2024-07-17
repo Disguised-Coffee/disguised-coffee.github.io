@@ -34,6 +34,9 @@ function ReturnFileName(element) {
         case "vite":
             j = "vite";
             break
+        case "github":
+            j = "github";
+            break
         default:
             return "";
     }
@@ -90,7 +93,10 @@ const Card =
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D]" onClick={() =>{ testFunc(title)}}>
-            <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={GLOBALSFORMRWORLDWIDE.cardSRC + image.src} alt={image.alt ? image.alt : ("project" + counter)} />
+            {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={(image ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : "" )} alt={image.alt ? image.alt : ("project" + counter)} /> 
+                : <div className="object-cover h-full w-full bg-[var(--accent)] shadow-inner"></div>
+                    
+                    }
             <div className="text-white [text-shadow:_2px_2px_0px_#000000] absolute top-0 right-0 bottom-0 left-0 p-4 z-[1] flex items-center justify-center flex-col">
                 {/* Title of project */}
                 <h2
@@ -110,7 +116,7 @@ const Card =
                     <div className="flex jusify-center h-max">
                         {
                             tech.map((element,key) => {
-                                let r = ReturnFileName(element);
+                                let r =  ReturnFileName(element);
                                 if (r === "") {
                                     return (
                                         <div></div>

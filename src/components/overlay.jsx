@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle, useRef, useState } from "react"
 import data from "../app/cardData.json"
 import { ReturnFileName } from "./cards";
 import Image from "next/image";
-import GLOBALSFORMRWORLDWIDE from "@/app/const" ;
+import GLOBALSFORMRWORLDWIDE from "@/app/const";
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -33,7 +33,9 @@ const Overlay = forwardRef(
             i++;
         }
 
+
         let [blah, updateBlah] = useState(
+
             data[i].dn ? () => {
                 setTimeout(() => {
                     //do some fancy animation thing in css
@@ -79,13 +81,20 @@ function OverlayContent(props) {
                         <div className="font-[Lato]">
                             <h1 className="text-[3.5rem] italic">{data[props.index].name}</h1>
                             <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold" /*ref={refTest}*/>
-                                {(data[props.index].date.singleDate ? data[props.index].date.singleDate : (`${data[props.index].date.begin} - ${data[props.index].date.end}`))}
+                                {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
+                                    : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)
+                                        : (`${data[props.index].date.begin} - ${data[props.index].date.end}`)
+                                )}
                             </h2>
                         </div>
                         <div className="text-[1.4rem] 2xl:text-[1.8rem]">
-                            <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
-                                {`(${data[props.index].desc.caption})`}
-                            </h3>
+                            {(
+                                data[props.index].desc.caption ?
+                                    <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
+                                        {`(${data[props.index].desc.caption})`}
+                                    </h3>
+                                : ""
+                            )}
                             <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
                                 {data[props.index].desc.paragraph}
                             </p>
@@ -122,21 +131,25 @@ function OverlayContent(props) {
                                 }
                             </div>
                         </div>
-                        <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
-                            <img
-                                // priority
-                                src={GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src}
-                                // width={32}   
-                                // height={32}
-                                alt="shjsad"
-                                className="h-[23vh] ml-auto mr-auto"
-                            />
-                            <p className="italic text-[0.7rem] w-[20vw] mr-auto ml-auto">
-                                {data[props.index].image.caption}
-                                
-                                {/* {data[props.index].image.caption} */}
-                            </p>
-                        </div>
+                        {(
+                            data[props.index].image ?
+
+                                <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
+                                    <img
+                                        // priority
+                                        src={GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src}
+                                        // width={32}   
+                                        // height={32}
+                                        alt="shjsad"
+                                        className="h-[23vh] ml-auto mr-auto"
+                                    />
+
+                                    <p className="italic text-[0.7rem] w-[20vw] mr-auto ml-auto">
+                                        {data[props.index].image.caption}
+                                    </p>
+                                </div>
+                                : ""
+                        )}
                         {/* Chips */}
                         <div className="flex justify-end flex-wrap mb-[10px]">
                             {
@@ -187,12 +200,12 @@ function Note(props) {
                     <br />
                     {
 
-                        (data[props.index].note.text ?
+                        (data[props.index].note.links ?
                             data[props.index].note.links.map((ele, key) => {
                                 return (
                                     <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
                                         <span></span>
-                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]"/>
+                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]" />
                                         {ele.display}<br />
                                     </a>
                                 )
@@ -220,7 +233,7 @@ function OverlayBottom(props) {
     let a = [];
 
     if (!data[props.index].misc) {
-        return(
+        return (
             <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
         );
     }
@@ -248,10 +261,10 @@ function OverlayBottom(props) {
  * @returns obj with proper info for 
  */
 function handleBadges(obj) {
-    if(!obj.type){
+    if (!obj.type) {
         return "el"
     }
-    
+
     switch (obj.type) {
         case "site":
             return "el"

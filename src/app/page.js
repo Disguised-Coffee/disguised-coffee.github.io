@@ -27,7 +27,7 @@ const Page = () => {
 }
 
 export default function Home() {
-  let [hoverContent,changeHC] = useState("testing project");
+  let [hoverContent,changeHC] = useState("Project Reactive Test");
   
   let overlayRef = useRef(null);
 
