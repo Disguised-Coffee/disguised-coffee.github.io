@@ -1,7 +1,8 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import data from "../app/TestMe.json"
+import data from "../app/cardData.json"
 import { ReturnFileName } from "./cards";
 import Image from "next/image";
+import GLOBALSFORMRWORLDWIDE from "@/app/const" ;
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -13,60 +14,60 @@ let test;
 
 const Overlay = forwardRef(
     ({ hc }, ref) => {
-    // [][][][][]  \/
-    const refTest = useRef(null);
+        // [][][][][]  \/
+        const refTest = useRef(null);
 
-    useImperativeHandle(ref, ()=> {
-        return{
-            overlayOn: () =>{
-                refTest.current.style.display = "block"
-            }
-        }
-    }, []);
-
-    if (!hc) {
-        return;
-    }
-    let i = 0;
-    while (i < data.length && (data[i].name != hc)) {
-        i++;
-    }
-
-    let [blah, updateBlah] = useState(
-        data[i].dn ? () => {
-            setTimeout(() => {
-                //do some fancy animation thing in css
-                updateBlah("click outside to close");
-                //leave this up for a sec.
-            }, 5000)
-            return `"${data[i].dn}"`
-        } : "click outside to close"
-    );
-
-
-
-    return (
-        <div className="overlay"
-            ref={refTest}
-            onClick={(event) => {
-                if (event.target === event.currentTarget) {
-                    refTest.current.style.display = "none";
+        useImperativeHandle(ref, () => {
+            return {
+                overlayOn: () => {
+                    refTest.current.style.display = "block"
                 }
-            }}>
-            <div className="overlayContainer">
-                {/* top bar thing for inner overlay*/}
-                <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
-                    {blah}
+            }
+        }, []);
+
+        if (!hc) {
+            return;
+        }
+        let i = 0;
+        while (i < data.length && (data[i].name != hc)) {
+            i++;
+        }
+
+        let [blah, updateBlah] = useState(
+            data[i].dn ? () => {
+                setTimeout(() => {
+                    //do some fancy animation thing in css
+                    updateBlah("click outside to close");
+                    //leave this up for a sec.
+                }, 5000)
+                return `"${data[i].dn}"`
+            } : "click outside to close"
+        );
+
+
+
+        return (
+            <div className="overlay"
+                ref={refTest}
+                onClick={(event) => {
+                    if (event.target === event.currentTarget) {
+                        refTest.current.style.display = "none";
+                    }
+                }}>
+                <div className="overlayContainer">
+                    {/* top bar thing for inner overlay*/}
+                    <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
+                        {blah}
+                    </div>
+                    <div className="innerOverlay w-[100vw] xl:w-[70vw]">
+                        <OverlayContent index={i} />
+                    </div>
+                    {/* bottom bar thing */}
+                    <OverlayBottom index={i} />
                 </div>
-                <div className="innerOverlay w-[100vw] xl:w-[70vw]">
-                    <OverlayContent index={i} />
-                </div>
-                {/* bottom bar thing */}
-                <OverlayBottom index={i} />
             </div>
-        </div>
-    )
-})
+        )
+    })
 
 function OverlayContent(props) {
     try {
@@ -85,18 +86,19 @@ function OverlayContent(props) {
                             <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
                                 {`(${data[props.index].desc.caption})`}
                             </h3>
-                            <p className="font-medium leading-9 h-[28vh] overflow-y-auto">
+                            <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
                                 {data[props.index].desc.paragraph}
                             </p>
                         </div>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-1/2 overflow-y-auto pr-[7px]">
                         {/* card thingy */}
                         <div className="flex flex-col items-end">
                             <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
                                 Made With
                             </h3>
                             <div className="flex jusify-center h-max">
+                                {/* tech symbols */}
                                 {
                                     data[props.index].tech.map((element, key) => {
                                         let r = ReturnFileName(element);
@@ -120,16 +122,41 @@ function OverlayContent(props) {
                                 }
                             </div>
                         </div>
-                        <div className="flex items-end flex-col pt-[2rem]">
+                        <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
                             <img
                                 // priority
-                                src={data[props.index].image.src}
-                                // width={32}
+                                src={GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src}
+                                // width={32}   
                                 // height={32}
                                 alt="shjsad"
-                                className="h-[30vh]"
+                                className="h-[23vh] ml-auto mr-auto"
                             />
+                            <p className="italic text-[0.7rem] w-[20vw] mr-auto ml-auto">
+                                {data[props.index].image.caption}
+                                
+                                {/* {data[props.index].image.caption} */}
+                            </p>
                         </div>
+                        {/* Chips */}
+                        <div className="flex justify-end flex-wrap mb-[10px]">
+                            {
+                                data[props.index].chips ?
+                                    data[props.index].chips.map((obj, key) => {
+                                        return (
+                                            <div className="rounded-lg bg-[white] p-1 text-[black] 
+                                                        shadow-[5px_5px_0px_0px_#B5B5B5] w-fit h-fit text-[1.35rem] 
+                                                        text-[Inter] font-semibold ml-[10px] mt-[10px] min-w-fit
+                                                        text-center
+                                                        "
+                                                key={key}>
+                                                {obj}
+                                            </div>
+                                        )
+                                    }) : ""
+                            }
+                        </div>
+                        {/* Special Note */}
+                        <Note index={props.index} />
                     </div>
                 </div>
             </>
@@ -145,6 +172,45 @@ function OverlayContent(props) {
         )
     }
 }
+
+function Note(props) {
+    if (data[props.index].note) {
+        return (
+            <div className="pl-[3vw] text-[1.3rem] mt-[2rem]">
+                {/* [][][[]] THIS DESERVES AN ANIMATION. */}
+                < h4 className="font-[Ubuntu]" >
+                    Special Note
+                </h4 >
+                <p className="italic">
+                    {data[props.index].note.text}
+                    <br />
+                    <br />
+                    {
+
+                        (data[props.index].note.text ?
+                            data[props.index].note.links.map((ele, key) => {
+                                return (
+                                    <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
+                                        <span></span>
+                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]"/>
+                                        {ele.display}<br />
+                                    </a>
+                                )
+                            })
+                            : ""
+                        )
+                    }
+                </p>
+            </div>
+        )
+    }
+    else {
+        return;
+    }
+
+}
+
+
 /**
  * 
  * @param {*} (props) index: index of the data json array to pull from
@@ -153,8 +219,10 @@ function OverlayContent(props) {
 function OverlayBottom(props) {
     let a = [];
 
-    if(!data[props.index].misc){
-        return;
+    if (!data[props.index].misc) {
+        return(
+            <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
+        );
     }
 
     data[props.index].misc.forEach((blah, num) => {
@@ -180,6 +248,10 @@ function OverlayBottom(props) {
  * @returns obj with proper info for 
  */
 function handleBadges(obj) {
+    if(!obj.type){
+        return "el"
+    }
+    
     switch (obj.type) {
         case "site":
             return "el"

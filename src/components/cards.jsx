@@ -1,12 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import GLOBALSFORMRWORLDWIDE from "@/app/const" ;
 
 let counter = 0;
-
-const makeTechList = (array) => {
-    let toR;
-}
 
 function ReturnFileName(element) {
     let j;
@@ -77,9 +73,6 @@ const Card =
         passRef.current.overlayOn();
     }
     
-    
-
-
     let DesignationName = ()=>{
         if(dn){
             return(
@@ -97,7 +90,7 @@ const Card =
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D]" onClick={() =>{ testFunc(title)}}>
-            <img className="h-full w-full filter brightness-50 " src={image.src} alt={image.alt ? image.alt : ("project" + counter)} />
+            <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={GLOBALSFORMRWORLDWIDE.cardSRC + image.src} alt={image.alt ? image.alt : ("project" + counter)} />
             <div className="text-white [text-shadow:_2px_2px_0px_#000000] absolute top-0 right-0 bottom-0 left-0 p-4 z-[1] flex items-center justify-center flex-col">
                 {/* Title of project */}
                 <h2

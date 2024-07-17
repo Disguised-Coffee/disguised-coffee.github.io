@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./TestMe.json"
+import data from "./cardData.json"
 import {Card} from "@/components/cards";
 
 const Content = ({
@@ -14,9 +14,9 @@ const Content = ({
                         flex items-center">
             <div>
                 <h1>My previous projects!</h1>
-                <p>(hover for more info!)</p>
+                <p>(click for more info!)</p>
             </div>
-            <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh]">
+            <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto">
                 {
                     data.map((obj,key) => {
                         return (
