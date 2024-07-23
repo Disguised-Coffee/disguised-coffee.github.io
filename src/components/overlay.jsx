@@ -62,11 +62,11 @@ const Overlay = forwardRef(
             //     return `"${data[i].dn}"`
             // } : "click outside to close"
 
-        let [blah, updateBlah] = useState(
+        // let [blah, updateBlah] = useState(
 
             
-            "click outside to close"
-        );
+        //     "click outside to close"
+        // );
 
         
 
@@ -86,7 +86,7 @@ const Overlay = forwardRef(
                 <div className="overlayContainer">
                     {/* top bar thing for inner overlay*/}
                     <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
-                        {blah}
+                        {"click outside to close"}
                     </div>
                     <div className="innerOverlay w-[100vw] xl:w-[70vw]">
                         <OverlayContent index={i} />
