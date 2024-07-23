@@ -56,11 +56,133 @@
             "Volunteering!",
             "ReactJS",
             "HSHacks!",
-            "Git Merge"
+            "git merge"
         ]
     },
     {
-        
+        "name": "OPPA STOPPA",
+        "dn": "project-car-hunt",
+        "tech": [
+            "vite",
+            "node",
+            "html",
+            "css",
+            "js",
+            "phaser"
+        ],
+        "image": {
+            "src": "carHunt.png",
+            "alt": "[]",
+            "caption": ""
+        },
+        "date": {
+            "begin": "April 2024",
+            "ongoing": 1
+        },
+        "desc": {
+            "paragraph": "Website-based game built during Code Nation Fellowship 1 that is still in development."
+        },
+        "misc": [
+            {
+                "src": "https://github.com/Disguised-Coffee/project-car-hunt",
+                "type": "github []",
+                "display": "github.com/Disguised-Coffee/project-car-hunt"
+            }
+        ],
+        "isHighlight": true,
+        "note": {
+            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
+            "links": [
+                {
+                    "src": "https://www.linkedin.com/in/victor-lin-96844430b/",
+                    "type": "lin []",
+                    "display": "Victor Lin"
+                },
+                {
+                    "src": "https://www.linkedin.com/in/adrian-apolonio-99931b302/",
+                    "type": "lin",
+                    "display": "Adrian Apolonio"
+                }
+            ]
+        },
+        "chips": [
+            "Game Design",
+            "Project Management",
+            "Cars",
+            "WIP"
+        ]
+    },
+    {
+        "name": "TaskMap",
+        "tech": [
+            "react",
+            "nextjs[]",
+            "google[]",
+            "github"
+        ],
+        "image": {
+            "src": "../np_file_17300.jpeg",
+            "alt": "taskmap logo []"
+        },
+        "date": {
+            "begin": "April 20, 2024",
+            "ongoing": 0
+        },
+        "desc": {
+            "paragraph": "HSHacks2024 website submission that was awarded 2nd place.<br/> TaskMap is a platform that connects teens in need of volunteering opportunities to elderly people who can't do certain tasks and jobs around the house. It is heavily based on the idea of high school juniors needing volunteering hours for joining organizations such as the National Honors Society (NHS).<br/> We used the Google Maps API to display geographical data of jobs on the website."
+        },
+        "misc": [
+            {
+                "src": "https://hshacks.org/",
+                "type": "site",
+                "display": "HSHacks.org"
+            },
+            {
+                "src": "https://devpost.com/software/taskmall",
+                "type": "site",
+                "display": "DevPost Submission"
+            },
+            {
+                "src": "https://github.com/Disguised-Coffee/hshacks-2024-v2",
+                "type": "github []",
+                "display": "Duplicate Repo from Kwaraz"
+            }
+        ],
+        "isHighlight": true,
+        "note": {
+            "text": "This project was a product of a team of people (that helped me as a individual even after this event). The OGs are listed here:",
+            "links": [
+                {
+                    "src": "https://github.com/MingcheL1",
+                    "type": "github []",
+                    "display": "MingcheL1"
+                },
+                {
+                    "src": "https://github.com/Kwaraz",
+                    "type": "github []",
+                    "display": "Kwaraz"
+                },
+                {
+                    "src": "https://github.com/maxhu08",
+                    "type": "github []",
+                    "display": "maxhu08"
+                },
+                {
+                    "src": "https://github.com/Nikolay-Sitnikov",
+                    "type": "github []",
+                    "display": "Nikolay-Sitnikov"
+                }
+            ]
+        },
+        "chips": [
+            "ReactJS",
+            "HSHacks",
+            "Project Management",
+            "Google Maps",
+            "2nd Place"
+        ]
+    },
+    {
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -121,7 +243,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -182,7 +303,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -243,7 +363,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -304,7 +423,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -365,7 +483,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -426,7 +543,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -487,7 +603,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -548,7 +663,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -609,7 +723,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -670,7 +783,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -731,7 +843,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -792,7 +903,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -853,7 +963,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -914,7 +1023,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -975,7 +1083,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -1036,7 +1143,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -1097,7 +1203,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -1158,7 +1263,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -1219,7 +1323,6 @@
         ]
     },
     {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [
@@ -1280,129 +1383,6 @@
         ]
     },
     {
-        
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        
         "name": "testing project",
         "dn": "project-test",
         "tech": [

@@ -1,6 +1,6 @@
 import React from "react";
 import data from "./cardData.json"
-import {Card} from "@/components/cards";
+import { Card } from "@/components/cards";
 
 const Content = ({
     changeHC,
@@ -8,20 +8,21 @@ const Content = ({
 }) => {
 
     return (
-        <div className="pt-[10vh] flex-col
+        <div id="projects"
+            className="pt-[10vh] flex-col
                         [scroll-padding:_40px] [scroll-snap-align:_start_none] 
                         text-white top-10px h-auto bg-void
-                        flex items-center">
-            <div>
+                        flex items-center z-3">
+            <div >
                 <h1>My previous projects!</h1>
                 <p>(click for more info!)</p>
             </div>
             <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto">
                 {
-                    data.map((obj,key) => {
+                    data.map((obj, key) => {
                         return (
                             <React.Fragment key={key}>
-                                <Card image={obj.image} title={obj.name} dn={obj.dn} tech={obj.tech} us={changeHC} passRef={passRef}/>
+                                <Card image={obj.image} title={obj.name} dn={obj.dn} tech={obj.tech} us={changeHC} passRef={passRef} />
                             </React.Fragment>
                         )
                     })

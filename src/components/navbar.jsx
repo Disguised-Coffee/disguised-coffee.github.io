@@ -17,7 +17,7 @@ const NavBar = () => {
 
   let navBarSlideButtons = [
     new buttonPiece("About me", "/test1", "No, I won't send you to another page."),
-    new buttonPiece("Projects", "/test2", "I won't send you to another page too!"),
+    new buttonPiece("Projects", "#projects", "I won't send you to another page too!"),
     new buttonPiece("Contacts", "/test2", "What the last two said"),
   ]
 

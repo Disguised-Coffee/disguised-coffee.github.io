@@ -12,6 +12,11 @@
   --overlay-highlight: #343434;
   --link-color: #0047FF;
 
+
+}
+
+html {
+  scroll-behavior:smooth !important;
 }
 
 @media (prefers-color-scheme: light) {
@@ -27,6 +32,12 @@
   .btn {
     background-color: theme('colors.main');
     border-radius: 4px;
+    padding: 2px 0.5rem;
+    width: max-content;
+
+    &:hover {
+      background-color: red;
+    }
   }
 
   /* 
@@ -40,6 +51,10 @@
 
 .drop-shadow-custom {
   filter: drop-shadow(0 7px 6px var(--main-color))
+}
+
+.blah-text {
+  text-shadow: var(--main-text-highlight) 1px 0 10px;
 }
 
 /* custom css for page to combat overscroll effects */
@@ -73,7 +88,7 @@ body {
   font-size: 2.5rem;
 }
 
-.overlayContainer{
+.overlayContainer {
   position: absolute;
   bottom: 0px;
   left: 50%;
@@ -98,4 +113,9 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.lazycssthing {
+  left: 50%;
+  transform: translateX(-50%);
 }
