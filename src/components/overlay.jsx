@@ -205,7 +205,7 @@ function Note(props) {
                                 return (
                                     <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
                                         <span></span>
-                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]" />
+                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="h-[100%] w-[1.6rem] mr-[0.2rem]" />
                                         {ele.display}<br />
                                     </a>
                                 )
@@ -241,7 +241,7 @@ function OverlayBottom(props) {
     data[props.index].misc.forEach((blah, num) => {
         a.push(
             <div className="flex mr-4 items-center" key={num}>
-                <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] filter invert mr-[0.2rem]" />
+                <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem]" />
                 <a href={blah.src} className="font-[Ubuntu] text-[var(--link-color)] underline italic text-[1.2rem]">
                     {blah.display ? blah.display : "bruh"}
                 </a>
@@ -271,8 +271,11 @@ function handleBadges(obj) {
 
         case "video":
             return "yt"
+        case "github":
+            return "../github"
+        default:
+            return "no"
     }
-    return "no"
 }
 
 export default Overlay;

@@ -144,8 +144,8 @@
             },
             {
                 "src": "https://github.com/Disguised-Coffee/hshacks-2024-v2",
-                "type": "github []",
-                "display": "Duplicate Repo from Kwaraz"
+                "type": "github",
+                "display": "Duplicate Repo"
             }
         ],
         "isHighlight": true,
@@ -154,22 +154,22 @@
             "links": [
                 {
                     "src": "https://github.com/MingcheL1",
-                    "type": "github []",
+                    "type": "github",
                     "display": "MingcheL1"
                 },
                 {
                     "src": "https://github.com/Kwaraz",
-                    "type": "github []",
+                    "type": "github",
                     "display": "Kwaraz"
                 },
                 {
                     "src": "https://github.com/maxhu08",
-                    "type": "github []",
+                    "type": "github",
                     "display": "maxhu08"
                 },
                 {
                     "src": "https://github.com/Nikolay-Sitnikov",
-                    "type": "github []",
+                    "type": "github",
                     "display": "Nikolay-Sitnikov"
                 }
             ]
