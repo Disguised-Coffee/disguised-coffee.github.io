@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --topbar-color: #05091C;
+  --main-text-highlight: #39D85C;
+  --main-color: #467AFF;
+  --accent: #28448E;
+  --void: #25252F;
+  --overlay: #1E1E1E;
+  --overlay-highlight: #343434;
+  --link-color: #0047FF;
+
+
+}
+
+html {
+  scroll-behavior:smooth !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+@layer components {
+  .btn {
+    background-color: theme('colors.main');
+    border-radius: 4px;
+    padding: 2px 0.5rem;
+    width: max-content;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+
+  /* 
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  ... */
+}
+
+
+.drop-shadow-custom {
+  filter: drop-shadow(0 7px 6px var(--main-color))
+}
+
+.blah-text {
+  text-shadow: var(--main-text-highlight) 1px 0 10px;
+}
+
+/* custom css for page to combat overscroll effects */
+body {
+  /* annoying overflow on coding page. */
+  overflow-x: hidden;
+
+  /* prevents user from look beyond scroll area (try using edge and commenting line below) */
+  overscroll-behavior: none;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 2;
+  display: none;
+}
+
+.innerOverlay {
+  display: flex;
+  height: 70vh;
+  padding: 1%;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  background-color: var(--overlay);
+  color: white;
+  /* width: 55vw;  we'll use a media query in TW*/
+  font-size: 2.5rem;
+}
+
+.overlayContainer {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: var(--alt-bg-color);
+} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--overlay-highlight)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.lazycssthing {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.covertToBlank{
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(283deg) brightness(103%) contrast(101%);
+}

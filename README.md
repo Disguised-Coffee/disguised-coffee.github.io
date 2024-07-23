@@ -1,3 +1,7 @@
 # Disguised-Coffee.github.io
 
-Personal website, mostly redone through the personal website project during my Code Nation fellowship 1 internship.
+<b>Personal website, redesigned in React! </b><i>
+    (because updating plain text was boring and tedious)
+</i>
+
+<!-- <a href=""></a> -->

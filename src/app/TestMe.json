@@ -1,0 +1,84 @@
+[
+    {
+        
+        "name": "testing project",
+        "dn": "project-test",
+        "tech": [
+            "css",
+            "html",
+            "js"
+        ],
+        "image": {
+            "src": "../np_file_17300.jpeg",
+            "alt": "a testing image",
+            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
+        },
+        "date": {
+            "begin": "Jan 1",
+            "end": "Dec 31",
+            "ongoing": true
+        },
+        "desc": {
+            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
+            "caption": "non nisi eveniet delectus unde illo!"
+        },
+        "misc": [
+            {
+                "src": "https://localhost.5500",
+                "type": "site",
+                "display": "localhost"
+            },
+            {
+                "src": "https://localhost.3000",
+                "type": "site",
+                "display": "localhost"
+            },
+            {
+                "src": "https://youtube.com",
+                "type": "video"
+            }
+        ],
+        "isHighlight": true,
+        "note": {
+            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
+            "links": [
+                {
+                    "src": "https://localhost.5500",
+                    "type": "site",
+                    "display": "site"
+                },
+                {
+                    "src": "https://localhost.5500",
+                    "display": "site"
+                }
+            ]
+        },
+        "chips": [
+            "Chips!",
+            "Testing!",
+            "Experimental Experimental Experimental",
+            "I love breaking my own website with react and a json document."
+        ]
+    },
+    {
+        "image": {
+            "src": "site.png",
+            "alt": "My favorite picture"
+        },
+        "name": "Project-Reactive-Test",
+        "tech": [
+            "react",
+            "node",
+            "figma"
+        ],
+        "date": {
+            "begin": "June 2024",
+            "ongoing": true
+        },
+        "desc": {
+            "paragraph": "Personal portfolio redesigned in React",
+            "caption": "so updating is easier"
+        },
+        "isHighlight": true
+    }
+]
