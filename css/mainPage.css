@@ -1,0 +1,90 @@
+section{
+    margin-top:0;
+}
+
+.container.main-page{
+    height: 100vh;
+}
+
+.container .animated{
+    top:38%;
+    left: -9%;
+    text-align: left;
+    padding-left: 12%;
+    padding-bottom: 3%;
+    transform-origin: 50% 50%;
+    animation: title-animation 1.3s linear 0s 1 normal both running;
+    animation-delay: 300ms;
+}
+
+@keyframes title-animation {
+    0% {
+        transform: translate(-190vw, 0px);
+        animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+.blah-container{
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; /* 2.6rem */
+    position: absolute;
+    top:66%;
+}
+
+.blah{
+    /* left: 47vw; */
+    transform-origin: 50% 50%;
+    animation: appear 1.3s linear 0s 1 normal both running;
+    animation-delay: 1.7s;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+.blah-2{
+    animation: appear 1.3s linear 0s 1 normal both running;
+    animation-delay: 2.5s;
+}
+
+button.blah{
+    font-size: 1.2rem;
+    
+    transform-origin: 50% 50%;
+    animation: appear 1.3s linear 0s 1 normal both running;
+    animation-delay: 3.1s;
+}
+
+.content.main-page{
+    position: absolute;
+    margin-top: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 2.25rem;
+    letter-spacing: -0.72px;
+    line-height: 43.2px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

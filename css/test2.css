@@ -1,0 +1,19 @@
+:root {
+	--defaultwhite: rgba(255, 255, 255, 1);
+	--gray-300: rgba(222, 226, 230, 1);
+	--gray-900: rgba(33, 37, 41, 1);
+	--body-text-base-color: rgba(104, 113, 122, 1);
+	--secondarylight-color: rgba(171, 181, 190, 1);
+	--semi-bold-h4-heading-font-family: "Inter-SemiBold", Helvetica;
+	--semi-bold-h4-heading-font-weight: 600;
+	--semi-bold-h4-heading-font-size: 24px;
+	--semi-bold-h4-heading-letter-spacing: 0px;
+	--semi-bold-h4-heading-line-height: normal;
+	--semi-bold-h4-heading-font-style: normal;
+	--body-base-text-font-family: "Inter-Regular", Helvetica;
+	--body-base-text-font-weight: 400;
+	--body-base-text-font-size: 16px;
+	--body-base-text-letter-spacing: 0px;
+	--body-base-text-line-height: 28px;
+	--body-base-text-font-style: normal;
+}
