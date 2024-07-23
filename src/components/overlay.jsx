@@ -17,23 +17,25 @@ const Overlay = forwardRef(
         // [][][][][]  \/
         const refTest = useRef(null);
 
-        function offOverlay(){
+        function offOverlay() {
             refTest.current.style.display = "none";
         }
 
-        function onOverlay(){
+        function onOverlay() {
             refTest.current.style.display = "block"
         }
 
-        document.addEventListener('keydown', (e) => {
-            console.log(e.key);
-            if (e.key == "Escape") {
-                offOverlay();
-            }
-            else if(e.key == "1"){
-                onOverlay();
-            }
-        })
+        if (typeof window === 'object') {
+            document.addEventListener('keydown', (e) => {
+                console.log(e.key);
+                if (e.key == "Escape") {
+                    offOverlay();
+                }
+                else if (e.key == "1") {
+                    onOverlay();
+                }
+            })
+        }
 
         useImperativeHandle(ref, () => {
             return {
@@ -54,21 +56,21 @@ const Overlay = forwardRef(
 
 
         // data[i].dn ? () => {
-            //     setTimeout(() => {
-            //         //do some fancy animation thing in css
-            //         updateBlah("click outside to close");
-            //         //leave this up for a sec.
-            //     }, 5000)
-            //     return `"${data[i].dn}"`
-            // } : "click outside to close"
+        //     setTimeout(() => {
+        //         //do some fancy animation thing in css
+        //         updateBlah("click outside to close");
+        //         //leave this up for a sec.
+        //     }, 5000)
+        //     return `"${data[i].dn}"`
+        // } : "click outside to close"
 
         // let [blah, updateBlah] = useState(
 
-            
+
         //     "click outside to close"
         // );
 
-        
+
 
 
         return (
@@ -98,7 +100,7 @@ const Overlay = forwardRef(
         )
     })
 
-    Overlay.displayName = 'Overlay';
+Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
     try {
