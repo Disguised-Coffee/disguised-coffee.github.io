@@ -17,10 +17,29 @@ const Overlay = forwardRef(
         // [][][][][]  \/
         const refTest = useRef(null);
 
+        function offOverlay(){
+            refTest.current.style.display = "none";
+        }
+
+        function onOverlay(){
+            refTest.current.style.display = "block"
+        }
+
+        document.addEventListener('keydown', (e) => {
+            console.log(e.key);
+            if (e.key == "Escape") {
+                offOverlay();
+            }
+            else if(e.key == "1"){
+                onOverlay();
+            }
+        })
+
         useImperativeHandle(ref, () => {
             return {
                 overlayOn: () => {
-                    refTest.current.style.display = "block"
+                    //turn off overlay
+                    onOverlay();
                 }
             }
         }, []);
@@ -46,6 +65,7 @@ const Overlay = forwardRef(
             } : "click outside to close"
         );
 
+        
 
 
         return (
@@ -55,7 +75,11 @@ const Overlay = forwardRef(
                     if (event.target === event.currentTarget) {
                         refTest.current.style.display = "none";
                     }
-                }}>
+                }}
+                onKeyDown={(event) => {
+                    console.log(event);
+                }}
+            >
                 <div className="overlayContainer">
                     {/* top bar thing for inner overlay*/}
                     <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
@@ -93,11 +117,9 @@ function OverlayContent(props) {
                                     <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
                                         {`(${data[props.index].desc.caption})`}
                                     </h3>
-                                : ""
+                                    : ""
                             )}
-                            <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
-                                {data[props.index].desc.paragraph}
-                            </p>
+                            <ParseForBR obj={data[props.index].desc.paragraph} />
                         </div>
                     </div>
                     <div className="w-1/2 overflow-y-auto pr-[7px]">
@@ -112,9 +134,7 @@ function OverlayContent(props) {
                                     data[props.index].tech.map((element, key) => {
                                         let r = ReturnFileName(element);
                                         if (r === "") {
-                                            return (
-                                                <div></div>
-                                            );
+                                            return;
                                         }
                                         else {
                                             key;
@@ -255,6 +275,55 @@ function OverlayBottom(props) {
     )
 }
 
+
+/**
+ * 
+ * @param {*} obj the 
+ * @returns 
+ */
+function ParseForBR({
+    obj
+}) {
+    if (obj.indexOf("<br/>") != -1) {
+        let toR = []; //list?
+        //with obj, look for instances of <br/>
+        // [text <br/]
+        let index = obj.indexOf("<br/>");
+
+        let key = 0
+        while (index != -1) {
+            //push string before
+            toR.push(
+                <span key={key}>{obj.substring(0, index)}</span>
+            );
+            key++;
+            // add br
+            for (let i = 0; i < 2; i++) {
+                toR.push(<br key={key} />);
+                key++;
+            }
+
+            obj = obj.substring(index + 6)
+
+            index = obj.indexOf("<br/>");
+        }
+
+        //end of the string
+        key++;
+        toR.push(<span key={key}>{obj}</span>)
+        return (
+            <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
+                {toR}
+            </p>
+        )
+    }
+    return (
+        <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
+            {obj}
+        </p>
+    )
+
+}
 
 /**
  * 

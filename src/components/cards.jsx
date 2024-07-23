@@ -118,12 +118,9 @@ const Card =
                             tech.map((element,key) => {
                                 let r =  ReturnFileName(element);
                                 if (r === "") {
-                                    return (
-                                        <div></div>
-                                    );
+                                    return;
                                 }
                                 else {
-                                    key;
                                     return (
                                         <Image
                                             priority

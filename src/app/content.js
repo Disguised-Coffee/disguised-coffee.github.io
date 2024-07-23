@@ -14,8 +14,8 @@ const Content = ({
                         text-white top-10px h-auto bg-void
                         flex items-center z-3">
             <div >
-                <h1>My previous projects!</h1>
-                <p>(click for more info!)</p>
+                <h1 className="font-semibold text-[2rem] text-center">My previous projects!</h1>
+                <p className="text-center">(click for more info!)</p>
             </div>
             <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto">
                 {

@@ -129,7 +129,8 @@
             "ongoing": 0
         },
         "desc": {
-            "paragraph": "HSHacks2024 website submission that was awarded 2nd place.<br/> TaskMap is a platform that connects teens in need of volunteering opportunities to elderly people who can't do certain tasks and jobs around the house. It is heavily based on the idea of high school juniors needing volunteering hours for joining organizations such as the National Honors Society (NHS).<br/> We used the Google Maps API to display geographical data of jobs on the website."
+            "paragraph": "HSHacks2024 website submission that was awarded 2nd place.<br/> TaskMap is a platform that connects teens in need of volunteering opportunities to elderly people who can't do certain tasks and jobs around the house. It is heavily based on the idea of high school juniors needing volunteering hours for joining organizations such as the National Honors Society (NHS).<br/> We used the Google Maps API to display geographical data of jobs on the website.",
+            "caption":"back to it again!"
         },
         "misc": [
             {

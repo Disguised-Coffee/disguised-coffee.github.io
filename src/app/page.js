@@ -42,7 +42,7 @@ const Page = () => {
 }
 
 export default function Home() {
-  let [hoverContent, changeHC] = useState("Project Reactive Test");
+  let [hoverContent, changeHC] = useState("TaskMap");
 
   let overlayRef = useRef(null);
 
