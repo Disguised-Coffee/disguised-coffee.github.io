@@ -10,7 +10,7 @@ import GLOBALSFORMRWORLDWIDE from "@/app/const";
 
 let v = false;
 
-let test;
+let test = "this is a test";
 
 const Overlay = forwardRef(
     ({ hc }, ref) => {
