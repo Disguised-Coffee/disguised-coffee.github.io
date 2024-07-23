@@ -24,7 +24,7 @@ const Page = () => {
       {/* actual  */}
       <div className="whitespace-nowrap w-[100vw]">
         <div className="absolute top-[25vh] text-[4.375rem] blah-text left-[2vw]">
-          <h1 className="font-[Ubuntu] italic">"Hello World"</h1>
+          <h1 className="font-[Ubuntu] italic">&quot;Hello World&quot;</h1>
           <h1 className="absolute left-[4rem]">FROM DISGUISED_COFFEE</h1>
         </div>
         <div className="absolute left-[2vw] bottom-[16vh] lazycssthing flex flex-col items-center text-center">

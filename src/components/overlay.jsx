@@ -53,16 +53,19 @@ const Overlay = forwardRef(
         }
 
 
+        // data[i].dn ? () => {
+            //     setTimeout(() => {
+            //         //do some fancy animation thing in css
+            //         updateBlah("click outside to close");
+            //         //leave this up for a sec.
+            //     }, 5000)
+            //     return `"${data[i].dn}"`
+            // } : "click outside to close"
+
         let [blah, updateBlah] = useState(
 
-            data[i].dn ? () => {
-                setTimeout(() => {
-                    //do some fancy animation thing in css
-                    updateBlah("click outside to close");
-                    //leave this up for a sec.
-                }, 5000)
-                return `"${data[i].dn}"`
-            } : "click outside to close"
+            
+            "click outside to close"
         );
 
         
@@ -94,6 +97,8 @@ const Overlay = forwardRef(
             </div>
         )
     })
+
+    Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
     try {
