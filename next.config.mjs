@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+
+// for github pages
+const nextConfig = {
+    output: "export",  // <=== enables static exports
+    reactStrictMode: true,
+  };
 
 export default nextConfig;
