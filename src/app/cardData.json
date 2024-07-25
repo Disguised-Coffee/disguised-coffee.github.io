@@ -72,8 +72,8 @@
         ],
         "image": {
             "src": "carHunt.png",
-            "alt": "[]",
-            "caption": ""
+            "alt": "map of OPPA STOPPA.",
+            "caption": "Ever seen slither.io? Imagine a hivemind version of that in a pac-man environment."
         },
         "date": {
             "begin": "April 2024",
@@ -85,17 +85,17 @@
         "misc": [
             {
                 "src": "https://github.com/Disguised-Coffee/project-car-hunt",
-                "type": "github []",
-                "display": "github.com/Disguised-Coffee/project-car-hunt"
+                "type": "github",
+                "display": "Github Repo"
             }
         ],
         "isHighlight": true,
         "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
+            "text": "This was a team project! I couldn't have done it without:",
             "links": [
                 {
                     "src": "https://www.linkedin.com/in/victor-lin-96844430b/",
-                    "type": "lin []",
+                    "type": "lin",
                     "display": "Victor Lin"
                 },
                 {
@@ -116,13 +116,13 @@
         "name": "TaskMap",
         "tech": [
             "react",
-            "nextjs[]",
-            "google[]",
+            "nextjs",
+            "googledev",
             "github"
         ],
         "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "taskmap logo []"
+            "src": "taskMap.png",
+            "alt": "taskmap logo"
         },
         "date": {
             "begin": "April 20, 2024",
@@ -130,7 +130,7 @@
         },
         "desc": {
             "paragraph": "HSHacks2024 website submission that was awarded 2nd place.<br/> TaskMap is a platform that connects teens in need of volunteering opportunities to elderly people who can't do certain tasks and jobs around the house. It is heavily based on the idea of high school juniors needing volunteering hours for joining organizations such as the National Honors Society (NHS).<br/> We used the Google Maps API to display geographical data of jobs on the website.",
-            "caption":"back to it again!"
+            "caption": "back to it again!"
         },
         "misc": [
             {
@@ -184,132 +184,121 @@
         ]
     },
     {
-        "name": "testing project",
-        "dn": "project-test",
+        "name": "Spot Iffy",
+        "dn": "project-spotiffy",
         "tech": [
-            "css",
             "html",
-            "js"
+            "css",
+            "js",
+            "figma"
         ],
         "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
+            "src": "SpotIffy.png",
+            "alt": "Spot Iffy logo",
+            "caption": "The logo was supposed to be reminiscent of the early Spotify logo of the late 2000s. The naming, however, it just a 'piece of creativity'."
         },
         "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
+            "begin": "Feburary 2024",
+            "end": "April 2024"
         },
         "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
+            "paragraph": "Music playing website utilizing the Youtube library with a Spotify-like setup as well as local storage capabilities. Made during my time at Code Nation in Fellowship 1.<br/> A youtube API is needed from the google developer page to use the site (which there is a guide for on the site).<br/> Currently planned to be redone in react."
         },
         "misc": [
             {
-                "src": "https://localhost.5500",
+                "src": "https://disguised-coffee.github.io/Spot-Iffy/",
                 "type": "site",
-                "display": "localhost"
+                "display": "Spot Iffy"
             },
             {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
+                "src": "https://github.com/Disguised-Coffee/Spot-Iffy",
+                "type": "github",
+                "display": "Github Repo"
             }
         ],
         "isHighlight": true,
         "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
+            "text": "Couldn't been done without Saad. Thanks a lot!"
         },
         "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
+            "Youtube API",
+            "IMC rules!",
+            "Code Nation"
         ]
     },
     {
-        "name": "testing project",
-        "dn": "project-test",
+        "name": "Project Portafolio",
+        "dn": "project-github-website-v2.5",
         "tech": [
             "css",
             "html",
-            "js"
+            "js",
+            "figma"
         ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
         "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
+            "begin": "September 2023",
+            "end": "November 2023",
+            "ongoing": 0
         },
         "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
+            "paragraph": "Reimagined version of my portfolio website made during my time at Code Nation in Fellowship 1. Instead of designing the website in draw.io, I used Figma to design it <br/> (yes I did try generating code, but there were too many issues with it)",
+            "caption": "Original website layout and design"
+        },
+        "isHighlight": 0,
+        "chips": [
+            "Code Nation",
+            "I Love HTML!"
+        ]
+    },
+    {
+        "name": "Project BREAKING HALF",
+        "tech": [
+            "arduino",
+            "cpp",
+            "particle",
+            "sql"
+        ],
+        "image": {
+            "src": "bh.jpg",
+            "alt": "Computer Science box sculture, collaborated with one of the many art students of my high school school"
+        },
+        "date": {
+            "begin": "January 2024",
+            "end": "April 2024",
+            "ongoing": 0
+        },
+        "desc": {
+            "paragraph": "Data-driven representation of the effects of drugs on the people around drug users, combining both CS and Art. Collaborated with one of the many Sculture I students from Lane Tech.",
+            "caption": "I almost fried my laptop with this one!"
         },
         "misc": [
             {
-                "src": "https://localhost.5500",
+                "src": "",
                 "type": "site",
-                "display": "localhost"
+                "display": "Instructables (NOT PUBLIC YET)"
             },
             {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
+                "src": "https://www.youtube.com/watch?v=2B_MLR5kpzg",
+                "type": "video",
+                "display": "'Project Breaking Half ~ A Comp Sci + Art Project'"
             }
         ],
         "isHighlight": true,
         "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
+            "text": "This was a collaborative project!"
         },
         "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
+            "12 volts of DC!",
+            "ThinkPad Durability"
         ]
     },
     {
-        "name": "testing project",
-        "dn": "project-test",
+        "name": "Project Semi Autonomous Watering System",
+        "dn": "project-SaGWS",
         "tech": [
-            "css",
-            "html",
-            "js"
+            "cpp",
+            "arduino",
+            "particle"
         ],
         "image": {
             "src": "../np_file_17300.jpeg",
@@ -327,549 +316,9 @@
         },
         "misc": [
             {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://localhost.3000",
-                "type": "site",
-                "display": "localhost"
-            },
-            {
-                "src": "https://youtube.com",
-                "type": "video"
-            }
-        ],
-        "isHighlight": true,
-        "note": {
-            "text": "This project is a testing project, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production, and shouldn't be used in production",
-            "links": [
-                {
-                    "src": "https://localhost.5500",
-                    "type": "site",
-                    "display": "site"
-                },
-                {
-                    "src": "https://localhost.5500",
-                    "display": "site"
-                }
-            ]
-        },
-        "chips": [
-            "Chips!",
-            "Testing!",
-            "Experimental Experimental Experimental",
-            "I love breaking my own website with react and a json document."
-        ]
-    },
-    {
-        "name": "testing project",
-        "dn": "project-test",
-        "tech": [
-            "css",
-            "html",
-            "js"
-        ],
-        "image": {
-            "src": "../np_file_17300.jpeg",
-            "alt": "a testing image",
-            "caption": "The Rainbow Bridge (レインボーブリッジ, Reinbō Buridji) is a suspension bridge crossing northern Tokyo Bay between Shibaura Pier and the Odaiba waterfront development in Minato, Tokyo, Japan."
-        },
-        "date": {
-            "begin": "Jan 1",
-            "end": "Dec 31",
-            "ongoing": true
-        },
-        "desc": {
-            "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perferendis cum voluptate, minima molestias itaque distinctio, quia voluptatibus commodi sed totam. Suscipit minus cum non nisi eveniet delectus unde illo!",
-            "caption": "non nisi eveniet delectus unde illo!"
-        },
-        "misc": [
-            {
-                "src": "https://localhost.5500",
-                "type": "site",
-                "display": "localhost"
+                "src": "https://www.youtube.com/watch?v=f1gwLZu5DGo",
+                "type": "video",
+                "display": "Project Semi-Autonomous Garden Watering System [Reupload]"
             },
             {
                 "src": "https://localhost.3000",

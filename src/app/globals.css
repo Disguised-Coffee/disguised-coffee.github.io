@@ -123,3 +123,7 @@ body {
 .covertToBlank{
   filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(283deg) brightness(103%) contrast(101%);
 }
+
+.oppaStoppa{
+  transform: scale(1.0, 0.9) perspective(280px) rotateX(25deg);
+}
