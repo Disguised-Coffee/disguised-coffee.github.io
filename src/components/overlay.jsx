@@ -110,7 +110,7 @@ function OverlayContent(props) {
                     <div className="w-1/2">
                         {/* header */}
                         <div className="font-[Lato]">
-                            <h1 className="text-[3.5rem] italic leading-8 pb-[1rem]">{data[props.index].name}</h1>
+                            <h1 className="text-[3.5rem] italic leading-[4rem] pb-[1rem]">{data[props.index].name}</h1>
                             <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold" /*ref={refTest}*/>
                                 {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
                                     : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)

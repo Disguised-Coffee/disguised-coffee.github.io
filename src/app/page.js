@@ -20,7 +20,7 @@ import { useRef, useState } from "react";
 const Page = () => {
   return (
     <div className="fixed [scroll-snap-align:_start_none] h-[100vh] pt-[0vh] text-white z-[-1]">
-      <Image className="" src={bg} alt="hi" />
+      <Image className="object-cover h-full w-full" src={bg} alt="hi" />
       {/* actual  */}
       <div className="whitespace-nowrap w-[100vw]">
         <div className="absolute top-[25vh] text-[4.375rem] blah-text left-[2vw]">
@@ -32,7 +32,7 @@ const Page = () => {
 
 
           {/* DO SOMETHING ABOUT THIS. */}
-          <div className="btn text-[1.2rem] select-all">
+          <div className="btn text-[3.2rem] select-all">
             Scroll down to learn more about me!
           </div>
         </div>

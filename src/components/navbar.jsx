@@ -31,14 +31,14 @@ const NavBar = () => {
         <h1 ref={logoText} className="text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
       <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
-        {navBarSlideButtons.map((obj, key) => {
+        {/* {navBarSlideButtons.map((obj, key) => {
           _ = key;
           return (
             <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>
             </li>
           )
         })}
-        <li className="p-[2vh]" key={(_ + 1)}><button className='btn'>Switch UI Mode</button></li>
+        <li className="p-[2vh]" key={(_ + 1)}><button className='btn'>Switch UI Mode</button></li> */}
       </ul>
     </nav>
   )

@@ -96,7 +96,7 @@ const Card =
     return (
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
-                          shadow-[10px_10px_0px_#3E3D3D]" onClick={() =>{ testFunc(title)}}>
+                          shadow-[10px_10px_0px_#3E3D3D] m-4" onClick={() =>{ testFunc(title)}}>
             {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={(image ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : "" )} alt={image.alt ? image.alt : ("project" + counter)} /> 
                 : <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
                     
@@ -117,7 +117,7 @@ const Card =
                 {/* div for tech icons []*/}
                 <div className="absolute flex justify-center flex-col bottom-[1vh]">
                     <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
-                    <div className="flex jusify-center h-max">
+                    <div className="flex justify-center h-max">
                         {
                             tech.map((element,key) => {
                                 let r =  ReturnFileName(element);
