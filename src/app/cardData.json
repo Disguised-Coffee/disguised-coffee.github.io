@@ -268,7 +268,7 @@
             "ongoing": 0
         },
         "desc": {
-            "paragraph": "Data-driven representation of the effects of drugs on the people around drug users, combining both CS and Art. Collaborated with one of the many Sculture I students from Lane Tech.",
+            "paragraph": "Data-driven sculpture to represent the effect of drugs on the people around drug users, combining both CS and Art. Collaborated with one of the many Sculture I students from Lane Tech.",
             "caption": "I almost fried my laptop with this one!"
         },
         "misc": [
@@ -397,7 +397,7 @@
         "name": "Fixed Input",
         "dn": "project-fi",
         "tech": [
-            "Python"
+            "python"
         ],
         "date": {
             "begin": "March 2023",
@@ -424,7 +424,7 @@
         "name": "Car Neural Net",
         "dn": "project-car-neural-net",
         "tech": [
-            "Python"
+            "python"
         ],
         "date": {
             "begin": "April 2023",
