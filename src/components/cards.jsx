@@ -104,8 +104,8 @@ const Card =
             <div className="text-white [text-shadow:_2px_2px_0px_#000000] absolute top-0 right-0 bottom-0 left-0 p-4 z-[1] flex items-center justify-center flex-col">
                 {/* Title of project */}
                 <h2
-                    className={`text-white font-bold m-0 
-                                text-[1.7rem] w-[100%] text-center ${(title == "OPPA STOPPA") ? "oppaStoppa" : ""}`}>
+                    className={`text-white font-bold m-0 leading-[2rem] 
+                                text-[1.5rem] w-[100%] text-center ${(title == "OPPA STOPPA") ? "oppaStoppa" : ""}`}>
                     {title}
                 </h2>
                 {/* designation name []*/}
