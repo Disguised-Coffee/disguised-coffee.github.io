@@ -17,7 +17,7 @@ const Content = ({
                 <h1 className="font-semibold text-[2rem] text-center">My previous projects!</h1>
                 <p className="text-center">(click for more info!)</p>
             </div>
-            <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto">
+            <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto mb-[10vh]">
                 {
                     data.map((obj, key) => {
                         return (

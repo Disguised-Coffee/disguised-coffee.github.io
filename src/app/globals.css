@@ -16,7 +16,7 @@
 }
 
 html {
-  scroll-behavior:smooth !important;
+  scroll-behavior: smooth !important;
 }
 
 @media (prefers-color-scheme: light) {
