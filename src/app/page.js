@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
+      <NavBar changeHC={changeHC} passRef={overlayRef}/>
       <Overlay hc={hoverContent} ref={overlayRef} />
       <Page />
       <div className="[overflow-y:_scroll] [scroll-snap-type:_y_mandatory] w-[105vw] h-[100vh] relative overflow-auto">

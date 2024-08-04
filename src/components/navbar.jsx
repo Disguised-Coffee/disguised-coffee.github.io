@@ -5,20 +5,23 @@ import Image from 'next/image'
 import dcLogo from '../../public/dcLogo.png'
 import { useRef } from 'react';
 
-const NavBar = () => {
+const NavBar = ({
+  changeHC,
+  passRef
+}) => {
   let _;
 
-  function buttonPiece(text, src, t) {
+  function buttonPiece(text, src, t, onClick = null) {
     this.text = text;
     this.src = src;
     this.titleText = t;
-
+    this.onClick = onClick;
   }
 
   let navBarSlideButtons = [
-    new buttonPiece("About me", "/test1", "No, I won't send you to another page."),
-    new buttonPiece("Projects", "#projects", "I won't send you to another page too!"),
-    new buttonPiece("Contacts", "/test2", "What the last two said"),
+    new buttonPiece("About me", "/", "Will activate an overlay", "about"),
+    new buttonPiece("Projects", "#projects", "Head towards Projects"),
+    new buttonPiece("Contacts", "/", "Will also activate an overlay", "contacts"),
   ]
 
   const logo = useRef(null),
@@ -31,14 +34,33 @@ const NavBar = () => {
         <h1 ref={logoText} className="text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
       <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
-        {/* {navBarSlideButtons.map((obj, key) => {
-          _ = key;
+        {navBarSlideButtons.map((obj, key) => {
+          if(obj.onClick){
+            return(
+              <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]">
+              <a className="transition ease-in-out duration-[500ms] hover:drop-shadow-highlight cursor-pointer"
+                title={obj.titleText}
+                onClick={
+                  (event) => {
+                    changeHC(obj.onClick);
+                    passRef.current.overlayOn();
+                  }}>
+                {obj.text}
+              </a>
+            </li>
+            )
+          }
           return (
-            <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]"><a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight" href={obj.src} title={obj.titleText}>{obj.text}</a>
+            <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]">
+              <a className="transition ease-in-out delay-150 duration-[500ms] hover:drop-shadow-highlight"
+                href={obj.src}
+                title={obj.titleText}>
+                {obj.text}
+              </a>
             </li>
           )
         })}
-        <li className="p-[2vh]" key={(_ + 1)}><button className='btn'>Switch UI Mode</button></li> */}
+        {/* <li className="p-[2vh]" key={(_ + 1)}><button className='btn'>Switch UI Mode</button></li> */}
       </ul>
     </nav>
   )

@@ -96,7 +96,8 @@ const Card =
     return (
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
                           h-[34vh] overflow-hidden rounded 
-                          shadow-[10px_10px_0px_#3E3D3D] m-4" onClick={() =>{ testFunc(title)}}>
+                          shadow-[10px_10px_0px_#3E3D3D] m-4
+                          hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
             {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={(image ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : "" )} alt={image.alt ? image.alt : ("project" + counter)} /> 
                 : <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
                     
@@ -115,7 +116,7 @@ const Card =
             {/* div for absolute stuff */}
             <div className="absolute h-full w-full z-[0] top-[0] flex justify-center">
                 {/* div for tech icons []*/}
-                <div className="absolute flex justify-center flex-col bottom-[1vh]">
+                <div className="absolute flex justify-center flex-col bottom-[1vh] opacity-0 group-hover:opacity-100 ease-in-out duration-300">
                     <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
                     <div className="flex justify-center h-max">
                         {
@@ -133,6 +134,7 @@ const Card =
                                             width={32}
                                             alt={r}
                                             key={key}
+                                            className="pr-[3px]"
                                         />
                                     )
                                 }

@@ -4,6 +4,7 @@
         "dn": "project-github-website-v3",
         "tech": [
             "react",
+            "nextjs",
             "node",
             "figma"
         ],
