@@ -1,8 +1,8 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import data from "../app/cardData.json"
 import { ReturnFileName } from "./cards";
-import Image from "next/image";
 import GLOBALSFORMRWORLDWIDE from "@/app/const";
+import infoJson from "../app/info.json"
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -22,12 +22,13 @@ const Overlay = forwardRef(
         }
 
         function onOverlay() {
-            refTest.current.style.display = "block"
+            refTest.current.style.display = "block";
+            // console.log(refTest.current.style);
         }
 
         if (typeof window === 'object') {
             document.addEventListener('keydown', (e) => {
-                console.log(e.key);
+                // console.log(e.key);
                 if (e.key == "Escape") {
                     offOverlay();
                 }
@@ -46,15 +47,24 @@ const Overlay = forwardRef(
             }
         }, []);
 
+        let i;
+
+        //if nothing.
         if (!hc) {
             return;
         }
-        let i = 0;
-        while (i < data.length && (data[i].name != hc)) {
-            i++;
+        // exception for the about me page:
+        else if (hc === "about" || hc ==="contacts") {
+            i = null;
         }
-
-
+        else {
+            i = 0;
+            //search for the data
+            while (i < data.length && (data[i].name != hc)) {
+                i++;
+            }
+        }
+        //CSS animation for the 
         // data[i].dn ? () => {
         //     setTimeout(() => {
         //         //do some fancy animation thing in css
@@ -70,11 +80,10 @@ const Overlay = forwardRef(
         //     "click outside to close"
         // );
 
-
-
+        //exception for the about me stuff
 
         return (
-            <div className="overlay"
+            <div className="overlay cursor-pointer ease-in-out duration-300"
                 ref={refTest}
                 onClick={(event) => {
                     if (event.target === event.currentTarget) {
@@ -85,13 +94,13 @@ const Overlay = forwardRef(
                     console.log(event);
                 }}
             >
-                <div className="overlayContainer">
+                <div className="overlayContainer cursor-default">
                     {/* top bar thing for inner overlay*/}
                     <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
                         {"press 'escape' or click outside to close"}
                     </div>
                     <div className="innerOverlay w-[100vw] xl:w-[80vw]">
-                        <OverlayContent index={i} />
+                        <OverlayContent index={i} hc={hc} />
                     </div>
                     {/* bottom bar thing */}
                     <OverlayBottom index={i} />
@@ -103,7 +112,54 @@ const Overlay = forwardRef(
 Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
+    let EnnumList = (props) => {
+        let toR = [];
+        props.arr.forEach((obj, key) => {
+            toR.push(
+                <li className="list-item text-[1rem]" key={key}>
+                    
+                    <ParseForSpecialTags obj={obj}/>
+                </li>
+            )
+        })
+        return (
+            <ol className="list-decimal ml-[2rem]">
+                {toR}
+            </ol>
+        )
+    }
+
     try {
+        if (props.index == null) {
+            switch (props.hc) {
+                case "about":
+                    return (
+                        <div className="w-full overflow-y-auto">
+                            <div className="font-[Lato] flex flex-col">
+                                <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">About Me</h1>
+                                <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">Last Updated: 
+                                    <span className="font-light italic"> {infoJson.about.lastUpdate}</span></h2>
+                            </div>
+                            <div className="text-[1.4rem] 2xl:text-[1.8rem]">
+                                <ul className="list-disc">
+                                    {infoJson.about.qa.map((obj, key) => {
+                                        return (
+                                            <li key={key}>
+                                                <h3>{obj.q}</h3>
+                                                <EnnumList arr={obj.a} />
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                    );
+                case "contacts":
+                    return ("hi")
+                default:
+                // throw new Error;
+            }
+        }
         return (
             <>
                 <div className="w-full flex">
@@ -111,7 +167,7 @@ function OverlayContent(props) {
                         {/* header */}
                         <div className="font-[Lato]">
                             <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index].name}</h1>
-                            <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold" /*ref={refTest}*/>
+                            <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
                                 {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
                                     : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)
                                         : (`${data[props.index].date.begin} - ${data[props.index].date.end}`)
@@ -126,7 +182,9 @@ function OverlayContent(props) {
                                     </h3>
                                     : ""
                             )}
-                            <ParseForBR obj={data[props.index].desc.paragraph} />
+                            <div className="font-medium leading-9 h-[48vh] overflow-y-auto">
+                            <ParseForSpecialTags obj={data[props.index].desc.paragraph} />
+                            </div>
                         </div>
                     </div>
                     <div className="w-1/2 overflow-y-auto pr-[7px]">
@@ -258,8 +316,7 @@ function Note(props) {
  */
 function OverlayBottom(props) {
     let a = [];
-
-    if (!data[props.index].misc) {
+    if (!props.index || !data[props.index].misc) {
         return (
             <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
         );
@@ -288,7 +345,7 @@ function OverlayBottom(props) {
  * @param {*} obj the 
  * @returns 
  */
-function ParseForBR({
+function ParseForSpecialTags({
     obj
 }) {
     if (obj.indexOf("<br/>") != -1) {
@@ -324,8 +381,37 @@ function ParseForBR({
             </p>
         )
     }
+    else if(obj.indexOf("<sl>") != -1){
+        let toR = []; //list?
+        //with obj, look for instances of <br/>
+        // [text <br/]
+        let index = obj.indexOf("<sl>");
+
+        let key = 0
+        while (index != -1) {
+            //push string before
+            let end = obj.indexOf("</sl>");
+            toR.push(
+                <span className="line-through" key={key}>{obj.substring(4, end)}</span>
+            );
+            key++;
+
+            obj = obj.substring(end + 5)
+
+            index = obj.indexOf("<sl>");
+        }
+
+        //end of the string
+        key++;
+        toR.push(<span key={key}>{obj}</span>)
+        return (
+            <p className="">
+                {toR}
+            </p>
+        )
+    }
     return (
-        <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
+        <p >
             {obj}
         </p>
     )

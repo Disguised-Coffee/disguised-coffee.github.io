@@ -6,6 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Disguised_Coffee's Website",
   description: "gg, no re",
+  icons: {
+    icon: 'dcLogo.png',
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,0 +1,39 @@
+{
+    "about": {
+        "lastUpdate": "August 4, 2024",
+        "qa": [
+            {
+                "q": "What do you even do?",
+                "a": [
+                    "As in right now? I make stuff.",
+                    "I also do certifications (so I can get a job).",
+                    "I’m also a big fan of motorsports and cars.",
+                    "And I compete in hackathons (coding competitions)."
+                ]
+            },
+            {
+                "q": "What is your experience?",
+                "a": [
+                    "As of writing, I’m an incoming college freshman that’s participated in multiple CS opportunities such as internships, hackathons, and even a robotics competition.",
+                    "If you mean technologies, I do Python, Java, and Javascript, with a little bit of C++.",
+                    "Also, I built this website with React."
+                ]
+            },
+            {
+                "q": "What inspired you to get to where you are? Why do you focus on such things?",
+                "a": [
+                    "Playing video games from the computer made me want to make my own games (which I ended up never really doing but made me retrospectively curious in the end)"
+                ]
+            },
+            {
+                "q": "What do you do IRL?",
+                "a": [
+                    "<sl>Continuous, long hours of code</sl> (Just kidding I can’t do that anymore)",
+                    "Learn and practice as much as I can so I can do more stuff later on in my life (which is computer engineering).",
+                    "Read books, and write things down"
+                ]
+            }
+        ]
+    },
+    "contacts": []
+}
