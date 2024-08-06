@@ -94,18 +94,42 @@ body {
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  animation: rollIn 1s ease 0s 1 normal forwards;
+}
+
+.overlayAniOn {
+  animation: rollIn .45s ease 0s 1 normal forwards;
+  opacity: 1;
+}
+
+.overlayAniOff {
+  animation: rollIn 1.5s ease 0s 1 reverse forwards;
 }
 
 @keyframes rollIn {
-	0% {
-		bottom: -560px;
-	}
+  0% {
+    bottom: -560px;
+  }
 
-	100% {
+  100% {
     bottom: 0px;
-	}
+  }
 }
+
+.outterOverlayOff{
+  animation: overlayFade 0.45s ease 0s 1 normal forwards;
+}
+
+@keyframes overlayFade {
+  0%{
+    opacity: 1;
+    display: block;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -132,10 +156,10 @@ body {
   transform: translateX(-50%);
 }
 
-.covertToBlank{
+.covertToBlank {
   filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(283deg) brightness(103%) contrast(101%);
 }
 
-.oppaStoppa{
+.oppaStoppa {
   transform: scale(1.0, 0.9) perspective(280px) rotateX(25deg);
 }

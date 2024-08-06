@@ -15,15 +15,22 @@ let test = "this is a test";
 const Overlay = forwardRef(
     ({ hc }, ref) => {
         // [][][][][]  \/
-        const refTest = useRef(null);
+        const overlayRef = useRef(null);
+
+        const innerlayRef = useRef(null);
+
 
         function offOverlay() {
-            refTest.current.style.display = "none";
+            innerlayRef.current.classList.remove("overlayAniOn");
+            innerlayRef.current.classList.add("overlayAniOff");
+            overlayRef.current.classList.add("outterOverlayOff");
         }
 
         function onOverlay() {
-            refTest.current.style.display = "block";
-            // console.log(refTest.current.style);
+            overlayRef.current.style.display = "block";
+            innerlayRef.current.classList.remove("overlayAniOff");
+            overlayRef.current.classList.remove("outterOverlayOff");
+            innerlayRef.current.classList.add("overlayAniOn");
         }
 
         if (typeof window === 'object') {
@@ -84,17 +91,18 @@ const Overlay = forwardRef(
 
         return (
             <div className="overlay cursor-pointer ease-in-out duration-300"
-                ref={refTest}
+                ref={overlayRef}
                 onClick={(event) => {
                     if (event.target === event.currentTarget) {
-                        refTest.current.style.display = "none";
+                        offOverlay();
                     }
                 }}
                 onKeyDown={(event) => {
                     console.log(event);
                 }}
             >
-                <div className="overlayContainer cursor-default">
+                <div className="overlayContainer cursor-default"
+                    ref={innerlayRef}>
                     {/* top bar thing for inner overlay*/}
                     <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
                         {"press 'escape' or click outside to close"}
