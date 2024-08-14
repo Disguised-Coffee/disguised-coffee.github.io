@@ -20,12 +20,23 @@ const NavBar = ({
 
   let navBarSlideButtons = [
     new buttonPiece("About me", "/", "Will activate an overlay", "about"),
-    new buttonPiece("Projects", "#projects", "Head towards Projects"),
+    new buttonPiece("Projects", "#projects", "Head towards Projects", "off"),
     new buttonPiece("Contacts", "/", "Will also activate an overlay", "contacts"),
   ]
 
   const logo = useRef(null),
     logoText = useRef(null);
+
+  const scrollToBottom = () => {
+    console.log("ASdasds")
+    console.log(window.scrollBy)
+    window.scrollBy(100, 0);
+
+    window.scrollTo({
+      top: 200,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <nav className="top-0 fixed h-[8vh] bg-topBar w-full text-white flex flex-center drop-shadow-custom z-30">
@@ -35,19 +46,41 @@ const NavBar = ({
       </a>
       <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
         {navBarSlideButtons.map((obj, key) => {
-          if(obj.onClick){
-            return(
+          if (obj.onClick && obj.onClick !== "off") {
+            return (
               <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]">
-              <a className="transition ease-in-out duration-[500ms] hover:drop-shadow-highlight cursor-pointer"
-                title={obj.titleText}
-                onClick={
-                  (event) => {
-                    changeHC(obj.onClick);
-                    passRef.current.overlayOn();
-                  }}>
-                {obj.text}
-              </a>
-            </li>
+                <a className="transition ease-in-out duration-[500ms] hover:drop-shadow-highlight cursor-pointer"
+                  title={obj.titleText}
+                  onClick={
+                    (event) => {
+                      changeHC(obj.onClick);
+                      passRef.current.overlayOn();
+                    }}>
+                  {obj.text}
+                </a>
+              </li>
+            )
+          }
+          else if (obj.onClick === "off") {
+            return (
+              <li key={key} className="p-[2vh] font-test italic block text-[1.2rem]">
+                <a className="transition ease-in-out duration-[500ms] hover:drop-shadow-highlight cursor-pointer"
+                  title={obj.titleText}
+                  onClick={
+                    (event) => {
+                      if (typeof window === 'object') {
+                        document.getElementById("scrollingPage").
+                          scrollTo({
+                            top: document.documentElement.scrollHeight,
+                            left: 0,
+                            behavior: 'smooth'
+                          });
+                      }
+                      passRef.current.overlayOff();
+                    }}>
+                  {obj.text}
+                </a>
+              </li>
             )
           }
           return (

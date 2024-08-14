@@ -1,6 +1,7 @@
 import React from "react";
 import data from "./cardData.json"
 import { Card } from "@/components/cards";
+import GLOBALSFORMRWORLDWIDE from "./const";
 
 const Content = ({
     changeHC,
@@ -12,12 +13,12 @@ const Content = ({
             className="pt-[10vh] flex-col
                         [scroll-padding:_40px] [scroll-snap-align:_start_none] 
                         text-white top-10px h-auto bg-void
-                        flex items-center z-3">
+                        flex items-center z-3 pb-[5vh]">
             <div >
                 <h1 className="font-semibold text-[2rem] text-center">My previous projects!</h1>
                 <p className="text-center">(click for more info!)</p>
             </div>
-            <div className="w-[60vw] flex flex-wrap justify-center min-h-[100vh] ml-auto mr-auto mb-[10vh]">
+            <div className="w-[60vw] flex flex-wrap justify-center min-h-[90vh] ml-auto mr-auto mb-[2vh]">
                 {
                     data.map((obj, key) => {
                         return (
@@ -28,6 +29,7 @@ const Content = ({
                     })
                 }
             </div>
+            <p className="italic">Content last updated {GLOBALSFORMRWORLDWIDE.lastUpdated}</p>
         </div >
     );
 }

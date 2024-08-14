@@ -31,8 +31,14 @@ const Overlay = forwardRef(
             innerlayRef.current.classList.remove("overlayAniOff");
             overlayRef.current.classList.remove("outterOverlayOff");
             innerlayRef.current.classList.add("overlayAniOn");
+
+            //fixes speedup css glitch
+            setTimeout(()=>{
+                innerlayRef.current.classList.remove("overlayAniOn");
+            },700)
         }
 
+        // necessary for deployment
         if (typeof window === 'object') {
             document.addEventListener('keydown', (e) => {
                 // console.log(e.key);
@@ -50,6 +56,10 @@ const Overlay = forwardRef(
                 overlayOn: () => {
                     //turn off overlay
                     onOverlay();
+                },
+                overlayOff: () => {
+                    //turn off overlay
+                    offOverlay();
                 }
             }
         }, []);

@@ -81,7 +81,7 @@
             "ongoing": 1
         },
         "desc": {
-            "paragraph": "Website-based game built during Code Nation Fellowship 1 that is still in development."
+            "paragraph": "Website-based, single paged game made during Code Nation Fellowship 1 made by a group of people and presented towards a group of people at IMC in May of 2024. Given 2 weeks of time, we were able to get the base of the game to work, including an entire gamespace, collision physics, and movement controls while figuring out the Phaser platform (which we weren’t taught before). <br/> As this game is still in development, NPCs, textures, and hardcoded game mechanics and features are still being worked on."
         },
         "misc": [
             {
@@ -110,7 +110,9 @@
             "Game Design",
             "Project Management",
             "Cars",
-            "WIP"
+            "WIP",
+            "Code Nation!",
+            "IMC rules!"
         ]
     },
     {
@@ -229,7 +231,7 @@
     },
     {
         "name": "Project Portafolio",
-        "dn": "project-github-website-v2.5",
+        "dn": "project-github-website-v2.0",
         "tech": [
             "css",
             "html",
@@ -405,8 +407,7 @@
             "ongoing": 0
         },
         "desc": {
-            "paragraph": "Console-heavy class derived from a 'languageproj' made during my Intro to AI class after wanting to create an auto corrector program to combat incorrect input spellings and inputs<br/> Notably broken and discontinued<br/> <br/> [for now >:)]",
-            "caption": "non nisi eveniet delectus unde illo!"
+            "paragraph": "Console-heavy class derived from a 'languageproj' made during my Intro to AI class after wanting to create an auto corrector program to combat incorrect input spellings and inputs<br/> Notably broken and discontinued<br/> <br/> [for now >:)]"
         },
         "misc": [
             {
