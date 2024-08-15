@@ -16,7 +16,7 @@
                 "a": [
                     "As of writing, I’m an incoming college freshman that’s participated in multiple CS opportunities such as internships, hackathons, and even a robotics competition.",
                     "If you mean technologies, I do Python, Java, and Javascript, with a little bit of C++.",
-                    "Also, I built this website with React."
+                    "Also, I built this website with ReactJS."
                 ]
             },
             {
@@ -35,5 +35,18 @@
             }
         ]
     },
-    "contacts": []
+    "contacts": [
+        {
+            "site": "Devpost",
+            "link": "https://devpost.com/Disguised-Coffee"
+        },
+        {
+            "site": "Instructables",
+            "link": "https://www.instructables.com/member/Disguised-Coffee/"
+        },
+        {
+            "site": "Github",
+            "link": "https://github.com/Disguised-Coffee"
+        }
+    ]
 }

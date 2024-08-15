@@ -15,17 +15,30 @@ let test = "this is a test";
 const Overlay = forwardRef(
     ({ hc }, ref) => {
         // [][][][][]  \/
-        const refTest = useRef(null);
+        const overlayRef = useRef(null);
+
+        const innerlayRef = useRef(null);
+
 
         function offOverlay() {
-            refTest.current.style.display = "none";
+            innerlayRef.current.classList.remove("overlayAniOn");
+            innerlayRef.current.classList.add("overlayAniOff");
+            overlayRef.current.classList.add("outterOverlayOff");
         }
 
         function onOverlay() {
-            refTest.current.style.display = "block";
-            // console.log(refTest.current.style);
+            overlayRef.current.style.display = "block";
+            innerlayRef.current.classList.remove("overlayAniOff");
+            overlayRef.current.classList.remove("outterOverlayOff");
+            innerlayRef.current.classList.add("overlayAniOn");
+
+            //fixes speedup css glitch
+            setTimeout(()=>{
+                innerlayRef.current.classList.remove("overlayAniOn");
+            },700)
         }
 
+        // necessary for deployment
         if (typeof window === 'object') {
             document.addEventListener('keydown', (e) => {
                 // console.log(e.key);
@@ -43,6 +56,10 @@ const Overlay = forwardRef(
                 overlayOn: () => {
                     //turn off overlay
                     onOverlay();
+                },
+                overlayOff: () => {
+                    //turn off overlay
+                    offOverlay();
                 }
             }
         }, []);
@@ -84,17 +101,18 @@ const Overlay = forwardRef(
 
         return (
             <div className="overlay cursor-pointer ease-in-out duration-300"
-                ref={refTest}
+                ref={overlayRef}
                 onClick={(event) => {
                     if (event.target === event.currentTarget) {
-                        refTest.current.style.display = "none";
+                        offOverlay();
                     }
                 }}
                 onKeyDown={(event) => {
                     console.log(event);
                 }}
             >
-                <div className="overlayContainer cursor-default">
+                <div className="overlayContainer cursor-default"
+                    ref={innerlayRef}>
                     {/* top bar thing for inner overlay*/}
                     <div className="bg-main text-center text-white italic h-[1.2rem] text-[0.8rem]">
                         {"press 'escape' or click outside to close"}
@@ -155,7 +173,29 @@ function OverlayContent(props) {
                         </div>
                     );
                 case "contacts":
-                    return ("hi")
+                    return (
+                        <div className="w-full overflow-y-auto">
+                            <div className="font-[Lato] flex flex-col">
+                                <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">Contacts</h1>
+                                <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">Last Updated: 
+                                    <span className="font-light italic"> August 14, 2024</span></h2>
+                            </div>
+                            <div className="text-[1.4rem] 2xl:text-[1.8rem]">
+                                <p className="text-[19rem]">hi</p>
+                                <p className="text-[0.9rem]">well, there's not a 'direct' way to contact me...</p>
+                                <ul className="list-disc">
+                                    {infoJson.contacts.map((obj, key)=>{
+                                        return(
+                                            <p>
+                                                <span className="font-semibold">{obj.site}</span>: <a href={obj.link} className="underline underline-offset-2 text-link text-lg italic">{obj.link}</a>
+                                            </p>
+                                        )
+                                    })
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    );
                 default:
                 // throw new Error;
             }
