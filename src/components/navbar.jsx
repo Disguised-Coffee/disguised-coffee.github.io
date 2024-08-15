@@ -44,7 +44,7 @@ const NavBar = ({
         <Image ref={logo} className="h-[3rem] max-w-full w-auto pr-[10px]" src={dcLogo} alt="hi" />
         <h1 ref={logoText} className="text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
-      <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex">
+      <ul className="absolute right-0 top-0 flex-center h-[8vh] items-center hidden xl:flex pr-[2rem]">
         {navBarSlideButtons.map((obj, key) => {
           if (obj.onClick && obj.onClick !== "off") {
             return (

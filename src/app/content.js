@@ -29,7 +29,8 @@ const Content = ({
                     })
                 }
             </div>
-            <p className="italic">Content last updated {GLOBALSFORMRWORLDWIDE.lastUpdated}</p>
+            <p className="">Content last updated {GLOBALSFORMRWORLDWIDE.lastUpdated}, and hosted on Github Pages.</p>
+            <p className="italic font-semibold text-[0.7rem] mt-[0.7rem]">Disguised_Coffee ~ 2024</p>
         </div >
     );
 }

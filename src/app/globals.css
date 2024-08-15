@@ -31,9 +31,12 @@
     border-radius: 4px;
     padding: 2px 0.5rem;
     width: max-content;
+    /* transform:scale(2); */
+    transition: all 0.2s ease-in-out !important;
 
     &:hover {
-      background-color: red;
+      background-color: theme('colors.accent');
+      transform:scale(1.05) !important;
     }
   }
 
@@ -129,6 +132,43 @@ body {
 }
 
 
+.main-text{
+  animation: title-animation 1.3s linear 0s 1 normal both running;
+}
+
+@keyframes title-animation {
+  0% {
+      transform: translate(-190vw, 0px);
+      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+  }
+
+  100% {
+      transform: none;
+  }
+}
+
+.main-captions{
+  animation: appear 1.3s linear 0s 1 normal both running;
+  animation-delay: 1.7s;
+  font-weight: 600;
+}
+
+@keyframes appear {
+  0% {
+      opacity: 0;
+      animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  100% {
+      transform: none;
+  }
+}
+
+.blah-2{
+  animation: appear 1.3s linear 0s 1 normal both running;
+  animation-delay: 2.5s;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -160,4 +200,9 @@ body {
 
 .oppaStoppa {
   transform: scale(1.0, 0.9) perspective(280px) rotateX(25deg);
+}
+
+/* https://unused-css.com/tools/clip-path-generator */
+.customClipPath{
+  clip-path: polygon(0% 0%, 0% 100%, 37.05% 99.68%, 36.88% 81%, 58.23% 81%, 58.23% 89.75%, 36.88% 89.75%, 36.82% 99.68%, 100% 100%, 100% 0%);
 }
