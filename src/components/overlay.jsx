@@ -186,7 +186,7 @@ function OverlayContent(props) {
                                 <ul className="list-disc">
                                     {infoJson.contacts.map((obj, key)=>{
                                         return(
-                                            <p>
+                                            <p key={key}>
                                                 <span className="font-semibold">{obj.site}</span>: <a href={obj.link} className="underline underline-offset-2 text-link text-lg italic">{obj.link}</a>
                                             </p>
                                         )
