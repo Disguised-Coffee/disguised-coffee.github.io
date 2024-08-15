@@ -182,7 +182,7 @@ function OverlayContent(props) {
                             </div>
                             <div className="text-[1.4rem] 2xl:text-[1.8rem]">
                                 <p className="text-[19rem]">hi</p>
-                                <p className="text-[0.9rem]">well, there's not a 'direct' way to contact me...</p>
+                                <p className="text-[0.9rem]">well, there&#39;s not a &#39;direct&#39; way to contact me...</p>
                                 <ul className="list-disc">
                                     {infoJson.contacts.map((obj, key)=>{
                                         return(
