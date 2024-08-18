@@ -416,7 +416,7 @@ function ParseForSpecialTags({
         key++;
         toR.push(<span key={key}>{obj}</span>)
         return (
-            <p className="font-medium leading-9 h-[48vh] overflow-y-auto">
+            <p key={key} className="font-medium leading-9 h-[48vh] overflow-y-auto">
                 {toR}
             </p>
         )
