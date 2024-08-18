@@ -18,7 +18,7 @@ const Content = ({
                 <h1 className="font-semibold text-[2rem] text-center">My previous projects!</h1>
                 <p className="text-center">(click for more info!)</p>
             </div>
-            <div className="w-[60vw] flex flex-wrap justify-center min-h-[90vh] ml-auto mr-auto mb-[2vh]">
+            <div className="w-[100vw] sm:w-[80vw] xl:w-[60vw] flex flex-wrap justify-center min-h-[90vh] ml-auto mr-auto mb-[2vh]">
                 {
                     data.map((obj, key) => {
                         return (
@@ -29,7 +29,7 @@ const Content = ({
                     })
                 }
             </div>
-            <p className="">Content last updated {GLOBALSFORMRWORLDWIDE.lastUpdated}, and hosted on Github Pages.</p>
+            <p className="w-[80vw] text-center">Content last updated {GLOBALSFORMRWORLDWIDE.lastUpdated}, and hosted on Github Pages.</p>
             <p className="italic font-semibold text-[0.7rem] mt-[0.7rem]">Disguised_Coffee ~ 2024</p>
         </div >
     );
