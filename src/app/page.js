@@ -23,8 +23,8 @@ const TypingScriptDynamic = ({
 }) => {
 
   //https://blog.logrocket.com/5-ways-implement-typing-animation-react/ ;-;
-  
-  let text = word;
+
+  let text = (!word) ? 'try{ let blah = undefined; console.log(blah.value); } finally{console.log("Hello World");}' : word;
   let delay = 10;
   
   const [currentText, setCurrentText] = useState('');
