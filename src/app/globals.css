@@ -133,7 +133,7 @@ body {
 
 
 .main-text{
-  animation: title-animation 1.3s linear 0s 1 normal both running;
+  animation: title-animation 1.3s linear 2s 1 normal both running;
 }
 
 @keyframes title-animation {
@@ -149,7 +149,7 @@ body {
 
 .main-captions{
   animation: appear 1.3s linear 0s 1 normal both running;
-  animation-delay: 1.7s;
+  animation-delay: 3.7s;
   font-weight: 600;
 }
 
@@ -205,4 +205,24 @@ body {
 /* https://unused-css.com/tools/clip-path-generator */
 .customClipPath{
   clip-path: polygon(0% 0%, 0% 100%, 37.05% 99.68%, 36.88% 81%, 58.23% 81%, 58.23% 89.75%, 36.88% 89.75%, 36.82% 99.68%, 100% 100%, 100% 0%);
+}
+
+/* For trailing character, cursor is solid, but then blinks when idle */
+#trailingChar{
+  animation: blink 0.75s cubic-bezier(0, 1.24, 0, 0.96) 0s infinite normal both running;
+}
+
+@keyframes blink {
+  0%,100% {
+      opacity: 0;
+  }
+
+  50% {
+      opacity: 1;
+  }
+}
+
+#typedChars{
+  animation: appear 0.25s linear 3s 1 normal both running;
+  
 }

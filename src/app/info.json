@@ -1,6 +1,6 @@
 {
     "about": {
-        "lastUpdate": "August 4, 2024",
+        "lastUpdate": "August 17, 2024",
         "qa": [
             {
                 "q": "What do you even do?",
@@ -14,7 +14,7 @@
             {
                 "q": "What is your experience?",
                 "a": [
-                    "As of writing, I’m an incoming college freshman that’s participated in multiple CS opportunities such as internships, hackathons, and even a robotics competition.",
+                    "As of writing, I’m an incoming college freshman that’s participated in multiple CS opportunities such as internships, hackathons, CTFs, and even a robotics competition.",
                     "If you mean technologies, I do Python, Java, and Javascript, with a little bit of C++.",
                     "Also, I built this website with ReactJS."
                 ]

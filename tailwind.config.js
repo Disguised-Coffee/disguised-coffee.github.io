@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily:{
         'IBM': 'IBM Plex Sans',
+        'Ubuntu-Mono' : 'Ubuntu Mono'
       },
       dropShadow:{
         "highlight":'2px 1px 2px var(--main-text-highlight)',

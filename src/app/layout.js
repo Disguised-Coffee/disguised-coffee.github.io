@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="overflow-y-hidden">
       <head>
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:light,lightitalic,bold,bolditalic,italic%7CIBM+Plex+Sans:bold,bolditalic,italic,400%7CBree+Serif%7CUbuntu:bold,bolditalic,italic%7CTS+Block"
+          href="https://fonts.googleapis.com/css?family=Lato:light,lightitalic,bold,bolditalic,italic%7CIBM+Plex+Sans:bold,bolditalic,italic,400%7CBree+Serif%7CUbuntu:bold,bolditalic,italic%7CTS+Block%7CUbuntu+Mono"
           rel="stylesheet"
         />
       </head>

@@ -83,7 +83,8 @@ const Card =
     let DesignationName = ()=>{
         if(dn){
             return(
-                <h3 className="pt-[0.25rem] text-[0.76rem] italic">
+                <h3 className="pt-[0.25rem] italic
+                                text-[0.76rem]">
                         {("\"" + dn + "\"")}
                 </h3>
             )
@@ -95,7 +96,8 @@ const Card =
 
     return (
         <div className="w-auto relative m-2 aspect-[301.92/306.06] 
-                          h-[34vh] overflow-hidden rounded 
+                          h-[21vh] sm:h-[34vh] 
+                          overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D] m-4
                           hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
             {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={(image ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : "" )} alt={image.alt ? image.alt : ("project" + counter)} /> 
@@ -106,7 +108,9 @@ const Card =
                 {/* Title of project */}
                 <h2
                     className={`text-white font-bold m-0 leading-[2rem] 
-                                text-[1.5rem] w-[100%] text-center ${(title == "OPPA STOPPA") ? "oppaStoppa" : ""}`}>
+                                text-[1rem] sm:text-[1.5rem]
+                                leading-4 sm:leading-none
+                                w-[100%] text-center ${(title == "OPPA STOPPA") ? "oppaStoppa" : ""}`}>
                     {title}
                 </h2>
                 {/* designation name []*/}
@@ -116,7 +120,7 @@ const Card =
             {/* div for absolute stuff */}
             <div className="absolute h-full w-full z-[0] top-[0] flex justify-center">
                 {/* div for tech icons []*/}
-                <div className="absolute flex justify-center flex-col bottom-[1vh] opacity-0 group-hover:opacity-100 ease-in-out duration-300">
+                <div className="absolute hidden sm:flex justify-center flex-col bottom-[1vh] opacity-0 group-hover:opacity-100 ease-in-out duration-300">
                     <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
                     <div className="flex justify-center h-max">
                         {
