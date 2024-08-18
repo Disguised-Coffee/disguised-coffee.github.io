@@ -25,7 +25,6 @@ const TypingScriptDynamic = ({
   //https://blog.logrocket.com/5-ways-implement-typing-animation-react/ ;-;
   
   let text = word;
-  console.log(text)
   let delay = 10;
   
   const [currentText, setCurrentText] = useState('');
@@ -42,7 +41,7 @@ const TypingScriptDynamic = ({
     }
   }, [currentIndex, delay, text]);
 
-  return <div className="absolute bottom-[2px] left-[2vw] font-Ubuntu-Mono">{currentText}<span id="trailingChar">{"█"}</span></div>;
+  return <div className="absolute top-[10vh] left-[2vw] font-Ubuntu-Mono">{currentText}<span id="trailingChar">{"█"}</span></div>;
 };
 
 
@@ -59,8 +58,8 @@ const Page = ({
       'echo "Hello World"',
       'Serial.println("Hello World");'
     ]
-
-    return scripts[Math.round(Math.random() * scripts.length - 1)];
+    let num = Math.round(Math.random() * scripts.length - 1)
+    return scripts[num];
   };
 
   return (

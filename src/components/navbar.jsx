@@ -80,7 +80,7 @@ const NavBar = ({
   return (
     <nav className="top-0 fixed h-[8vh] bg-topBar w-full text-white flex flex-center drop-shadow-custom z-30">
       <a className="flex items-center pl-[10px]" href="/">
-        <Image ref={logo} className="h-[2rem] xl:h-[3rem] max-w-full w-auto mr-[10px] " src={dcLogo} alt="hi" />
+        <Image ref={logo} className="h-[2rem] xl:h-[3rem] max-w-full w-auto mr-[10px] " src={dcLogo} alt="Disguised Coffee Logo"/>
         <h1 ref={logoText} className="text-[1.76rem] xl:text-[2rem] italic ">Disguised_Coffee</h1>
       </a>
       <button
@@ -92,7 +92,7 @@ const NavBar = ({
         className="absolute right-[1vw] 
                   top-[10%] w-[3rem]
                   block sm:hidden">
-        <Image src={menu} id='context' className='h-[3rem]' />
+        <Image src={menu} id='context' className='h-[3rem]' alt='Menu Context button'/>
       </button>
       <ul ref={navBarButtons} className="absolute right-0 top-[8vh] 
                                         sm:top-0 
