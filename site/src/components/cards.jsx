@@ -100,7 +100,9 @@ const Card =
                           overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D] m-4
                           hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
-            {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" src={(image ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : "" )} alt={image.alt ? image.alt : ("project" + counter)} /> 
+            {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" 
+                            src={(image.asset?.url || (image.src ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : ""))} 
+                            alt={image.alt ? image.alt : ("project" + counter)} /> 
                 : <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
                     
                     }

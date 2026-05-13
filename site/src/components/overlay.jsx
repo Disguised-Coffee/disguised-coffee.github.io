@@ -1,8 +1,9 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import data from "../app/cardData.json"
+'use client'
+
+import React, { forwardRef, useImperativeHandle, useRef, useState, useEffect } from "react";
 import { ReturnFileName } from "./cards";
 import GLOBALSFORMRWORLDWIDE from "@/app/const";
-import infoJson from "../app/info.json"
+import { getProjects, getAboutInfo, getContacts } from "@/lib/sanity";
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -16,9 +17,27 @@ const Overlay = forwardRef(
     ({ hc }, ref) => {
         // [][][][][]  \/
         const overlayRef = useRef(null);
-
         const innerlayRef = useRef(null);
+        const [data, setData] = useState([]);
+        const [aboutData, setAboutData] = useState(null);
+        const [contactsData, setContactsData] = useState([]);
+        const [isLoading, setIsLoading] = useState(false);
 
+        useEffect(() => {
+            const fetchAllData = async () => {
+                try {
+                    const projects = await getProjects();
+                    setData(projects || []);
+                    const about = await getAboutInfo();
+                    setAboutData(about);
+                    const contacts = await getContacts();
+                    setContactsData(contacts || []);
+                } catch (error) {
+                    console.error('Error fetching overlay data:', error);
+                }
+            };
+            fetchAllData();
+        }, []);
 
         function offOverlay() {
             innerlayRef.current.classList.remove("overlayAniOn");
@@ -118,10 +137,10 @@ const Overlay = forwardRef(
                         {"press 'escape' or click outside to close"}
                     </div>
                     <div className="innerOverlay w-[100vw] xl:w-[80vw]">
-                        <OverlayContent index={i} hc={hc} />
+                        <OverlayContent index={i} hc={hc} data={data} aboutData={aboutData} contactsData={contactsData} />
                     </div>
                     {/* bottom bar thing */}
-                    <OverlayBottom index={i} />
+                    <OverlayBottom index={i} data={data} />
                 </div>
             </div>
         )
@@ -130,6 +149,8 @@ const Overlay = forwardRef(
 Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
+    const { data, aboutData, contactsData } = props;
+    
     let EnnumList = (props) => {
         let toR = [];
         props.arr.forEach((obj, key) => {
@@ -151,16 +172,19 @@ function OverlayContent(props) {
         if (props.index == null) {
             switch (props.hc) {
                 case "about":
+                    if (!aboutData) {
+                        return <p className="text-center">Loading about info...</p>;
+                    }
                     return (
                         <div className="w-full overflow-y-auto">
                             <div className="font-[Lato] flex flex-col">
                                 <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">About Me</h1>
                                 <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">Last Updated: 
-                                    <span className="font-light italic"> {infoJson.about.lastUpdate}</span></h2>
+                                    <span className="font-light italic"> {aboutData.lastUpdate || "N/A"}</span></h2>
                             </div>
                             <div className="text-[1.4rem] 2xl:text-[1.8rem]">
                                 <ul className="list-disc">
-                                    {infoJson.about.qa.map((obj, key) => {
+                                    {(aboutData.qa || []).map((obj, key) => {
                                         return (
                                             <li key={key}>
                                                 <h3>{obj.q}</h3>
@@ -184,7 +208,7 @@ function OverlayContent(props) {
                                 <p className="text-[19rem]">hi</p>
                                 <p className="text-[0.9rem]">well, there&#39;s not a &#39;direct&#39; way to contact me...</p>
                                 <ul className="list-disc">
-                                    {infoJson.contacts.map((obj, key)=>{
+                                    {(contactsData || []).map((obj, key)=>{
                                         return(
                                             <p key={key}>
                                                 <span className="font-semibold">{obj.site}</span>: <a href={obj.link} className="underline underline-offset-2 text-link text-lg italic">{obj.link}</a>
@@ -199,6 +223,9 @@ function OverlayContent(props) {
                 default:
                 // throw new Error;
             }
+        }
+        if (!data || data.length === 0) {
+            return <p className="text-center">Loading project data...</p>;
         }
         return (
             <>
@@ -262,7 +289,7 @@ function OverlayContent(props) {
                                 <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
                                     <img
                                         // priority
-                                        src={GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src}
+                                        src={data[props.index].image.asset?.url || (GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src)}
                                         // width={32}   
                                         // height={32}
                                         alt="shjsad"
@@ -294,7 +321,7 @@ function OverlayContent(props) {
                             }
                         </div>
                         {/* Special Note */}
-                        <Note index={props.index} />
+                        <Note index={props.index} data={data} />
                     </div>
                 </div>
             </>
@@ -312,40 +339,38 @@ function OverlayContent(props) {
 }
 
 function Note(props) {
-    if (data[props.index].note) {
-        return (
-            <div className="pl-[3vw] text-[1.3rem] mt-[2rem]">
-                {/* [][][[]] THIS DESERVES AN ANIMATION. */}
-                < h4 className="font-[Ubuntu]" >
-                    Special Note
-                </h4 >
-                <p className="italic">
-                    {data[props.index].note.text}
-                    <br />
-                    <br />
-                    {
-
-                        (data[props.index].note.links ?
-                            data[props.index].note.links.map((ele, key) => {
-                                return (
-                                    <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
-                                        <span></span>
-                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="h-[100%] w-[1.6rem] mr-[0.2rem]" />
-                                        {ele.display}<br />
-                                    </a>
-                                )
-                            })
-                            : ""
-                        )
-                    }
-                </p>
-            </div>
-        )
+    const { data, index } = props;
+    if (!data || !data[index] || !data[index].note) {
+        return null;
     }
-    else {
-        return;
-    }
+    return (
+        <div className="pl-[3vw] text-[1.3rem] mt-[2rem]">
+            {/* [][][[]] THIS DESERVES AN ANIMATION. */}
+            < h4 className="font-[Ubuntu]" >
+                Special Note
+            </h4 >
+            <p className="italic">
+                {data[index].note.text}
+                <br />
+                <br />
+                {
 
+                    (data[index].note.links ?
+                        data[index].note.links.map((ele, key) => {
+                            return (
+                                <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
+                                    <span></span>
+                                    <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="h-[100%] w-[1.6rem] mr-[0.2rem]" />
+                                    {ele.display}<br />
+                                </a>
+                            )
+                        })
+                        : ""
+                    )
+                }
+            </p>
+        </div>
+    )
 }
 
 
@@ -355,14 +380,15 @@ function Note(props) {
  * @returns 
  */
 function OverlayBottom(props) {
+    const { data, index } = props;
     let a = [];
-    if (!props.index || !data[props.index].misc) {
+    if (!index || !data || !data[index] || !data[index].misc) {
         return (
             <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
         );
     }
 
-    data[props.index].misc.forEach((blah, num) => {
+    data[index].misc.forEach((blah, num) => {
         a.push(
             <div className="flex mr-4 items-center" key={num}>
                 <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem]" />

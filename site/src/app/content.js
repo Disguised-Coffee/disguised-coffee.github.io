@@ -1,12 +1,46 @@
-import React from "react";
-import data from "./cardData.json"
+'use client'
+
+import React, { useState, useEffect } from "react";
 import { Card } from "@/components/cards";
 import GLOBALSFORMRWORLDWIDE from "./const";
+import { getProjects } from "@/lib/sanity";
 
 const Content = ({
     changeHC,
     passRef
 }) => {
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const projects = await getProjects();
+                setData(projects || []);
+            } catch (error) {
+                console.error('Failed to fetch projects:', error);
+                setData([]);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div id="projects"
+                className="pt-[10vh] flex-col
+                            [scroll-padding:_40px] [scroll-snap-align:_start_none] 
+                            text-white top-10px h-auto bg-void
+                            flex items-center z-3 pb-[5vh]">
+                <div className="w-[100vw] sm:w-[80vw] xl:w-[60vw] flex flex-wrap justify-center min-h-[90vh] ml-auto mr-auto mb-[2vh]">
+                    <p className="text-center">Loading projects...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div id="projects"
