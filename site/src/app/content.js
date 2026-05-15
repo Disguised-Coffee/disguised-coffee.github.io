@@ -57,7 +57,7 @@ const Content = ({
                     data.map((obj, key) => {
                         return (
                             <React.Fragment key={key}>
-                                <Card image={obj.image} title={obj.name} dn={obj.dn} tech={obj.tech} us={changeHC} passRef={passRef} />
+                                <Card image={obj.image} title={obj.name} dn={obj.dn} icon={obj.icon} us={changeHC} passRef={passRef} />
                             </React.Fragment>
                         )
                     })

@@ -13,7 +13,16 @@ export async function getProjects() {
     _id,
     name,
     dn,
-    tech,
+    slug,
+    icon -> {
+      _id,
+      name,
+      svg {
+        asset -> {
+          url
+        }
+      }
+    },
     image {
       asset -> {
         url

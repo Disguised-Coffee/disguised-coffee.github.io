@@ -69,7 +69,7 @@ const Card =
     image,
     title,
     dn,
-    tech,
+    icon,
     us,
     passRef
 }) => {
@@ -100,12 +100,13 @@ const Card =
                           overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D] m-4
                           hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
-            {image ? <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" 
-                            src={(image.asset?.url || (image.src ? GLOBALSFORMRWORLDWIDE.cardSRC + image.src : ""))} 
-                            alt={image.alt ? image.alt : ("project" + counter)} /> 
-                : <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
-                    
-                    }
+            {image && image.asset && image.asset.url ? (
+                <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" 
+                    src={image.asset.url} 
+                    alt={image.alt ? image.alt : ("project" + counter)} />
+            ) : (
+                <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
+            )}
             <div className="text-white [text-shadow:_2px_2px_0px_#000000] absolute top-0 right-0 bottom-0 left-0 p-4 z-[1] flex items-center justify-center flex-col">
                 {/* Title of project */}
                 <h2
@@ -123,28 +124,16 @@ const Card =
             <div className="absolute h-full w-full z-[0] top-[0] flex justify-center">
                 {/* div for tech icons []*/}
                 <div className="absolute hidden sm:flex justify-center flex-col bottom-[1vh] opacity-0 group-hover:opacity-100 ease-in-out duration-300">
-                    <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
+                    <h4 className="italic text-center text-white text-[0.9rem]">Icon</h4>
                     <div className="flex justify-center h-max">
                         {
-                            tech.map((element,key) => {
-                                let r =  ReturnFileName(element);
-                                if (r === "") {
-                                    return;
-                                }
-                                else {
-                                    return (
-                                        <Image
-                                            priority
-                                            src={"/icons/" + r}
-                                            height={32}
-                                            width={32}
-                                            alt={r}
-                                            key={key}
-                                            className="pr-[3px]"
-                                        />
-                                    )
-                                }
-                            })
+                            icon ? (
+                                <img
+                                    src={icon.svg?.asset?.url}
+                                    alt={icon.name}
+                                    className="pr-[3px] h-[32px] w-[32px]"
+                                />
+                            ) : null
                         }
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import React, { forwardRef, useImperativeHandle, useRef, useState, useEffect } f
 import { ReturnFileName } from "./cards";
 import GLOBALSFORMRWORLDWIDE from "@/app/const";
 import { getProjects, getAboutInfo, getContacts } from "@/lib/sanity";
+import {RenderPortableText} from "./portableText"
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -227,6 +228,10 @@ function OverlayContent(props) {
         if (!data || data.length === 0) {
             return <p className="text-center">Loading project data...</p>;
         }
+        if (props.index === null) {
+            return <p className="text-center">Project not found</p>;
+        }
+        console.log(data[props.index])
         return (
             <>
                 <div className="w-full flex">
@@ -242,15 +247,8 @@ function OverlayContent(props) {
                             </h2>
                         </div>
                         <div className="text-[1.4rem] 2xl:text-[1.8rem]">
-                            {(
-                                data[props.index].desc.caption ?
-                                    <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
-                                        {`(${data[props.index].desc.caption})`}
-                                    </h3>
-                                    : ""
-                            )}
                             <div className="font-medium leading-9 h-[48vh] overflow-y-auto">
-                            <ParseForSpecialTags obj={data[props.index].desc.paragraph} />
+                                <RenderPortableText value={data[props.index].desc} />
                             </div>
                         </div>
                     </div>
@@ -261,38 +259,29 @@ function OverlayContent(props) {
                                 Made With
                             </h3>
                             <div className="flex jusify-center h-max">
-                                {/* tech symbols */}
+                                {/* icon symbol */}
                                 {
-                                    data[props.index].tech.map((element, key) => {
-                                        let r = ReturnFileName(element);
-                                        if (r === "") {
-                                            return;
-                                        }
-                                        else {
-                                            key;
-                                            return (
+                                    data[props.index].icon ? (
+                                        <div className="flex items-center">
+                                            {data[props.index].icon.svg?.asset?.url && (
                                                 <img
-                                                    src={"/icons/" + r}
-                                                    alt={r}
-                                                    key={key}
+                                                    src={data[props.index].icon.svg.asset.url}
+                                                    alt={data[props.index].icon.name}
                                                     className="pl-[4px] h-[3rem]"
                                                 />
-                                            )
-                                        }
-                                    })
+                                            )}
+                                        </div>
+                                    ) : null
                                 }
                             </div>
                         </div>
                         {(
-                            data[props.index].image ?
+                            data[props.index].image && data[props.index].image.asset && data[props.index].image.asset.url ?
 
                                 <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
                                     <img
-                                        // priority
-                                        src={data[props.index].image.asset?.url || (GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src)}
-                                        // width={32}   
-                                        // height={32}
-                                        alt="shjsad"
+                                        src={data[props.index].image.asset.url}
+                                        alt={data[props.index].image.alt || "Project image"}
                                         className="h-[23vh] ml-auto mr-auto"
                                     />
 

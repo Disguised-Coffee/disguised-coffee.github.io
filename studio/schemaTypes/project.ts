@@ -18,13 +18,6 @@ export const project = defineType({
       description: 'Internal project designation (e.g., "project-github-website-v3")',
     }),
     defineField({
-      name: 'tech',
-      title: 'Technologies',
-      type: 'array',
-      of: [{type: 'string'}],
-      description: 'List of technologies used in the project',
-    }),
-    defineField({
       name: 'image',
       title: 'Project Image',
       type: 'object',
@@ -76,21 +69,28 @@ export const project = defineType({
     defineField({
       name: 'desc',
       title: 'Description',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'paragraph',
-          title: 'Description Text',
-          type: 'text',
-          description: 'Main project description (supports <br/> and <sl> tags)',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'caption',
-          title: 'Description Caption',
-          type: 'string',
-        }),
-      ],
+      type: 'array',
+      of: [{type: 'block'}],
+      validation: (Rule) => Rule.required(),
+      description: 'Project description as Portable Text',
+    }),
+    defineField({
+      name: 'icon',
+      title: 'Project Icon',
+      type: 'reference',
+      to: [{type: 'icon'}],
+      description: 'Reference to the project icon',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+      description: 'URL-friendly slug for the project',
     }),
     defineField({
       name: 'misc',
