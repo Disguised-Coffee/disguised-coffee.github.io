@@ -41,9 +41,15 @@ const Overlay = forwardRef(
         }, []);
 
         function offOverlay() {
+            overlayRef.current.style.display = "none";
             innerlayRef.current.classList.remove("overlayAniOn");
             innerlayRef.current.classList.add("overlayAniOff");
             overlayRef.current.classList.add("outterOverlayOff");
+            // Re-enable scrolling
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            }
         }
 
         function onOverlay() {
@@ -51,6 +57,12 @@ const Overlay = forwardRef(
             innerlayRef.current.classList.remove("overlayAniOff");
             overlayRef.current.classList.remove("outterOverlayOff");
             innerlayRef.current.classList.add("overlayAniOn");
+
+            // Disable scrolling when overlay is open
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
+            }
 
             //fixes speedup css glitch
             setTimeout(()=>{

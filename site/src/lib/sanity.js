@@ -85,3 +85,16 @@ export async function getContacts() {
     return [];
   }
 }
+
+// Fetch page settings
+export async function getPageSettings() {
+  const query = `*[_type == "pageSettings"][0]`;
+  
+  try {
+    const pageSettings = await client.fetch(query);
+    return pageSettings;
+  } catch (error) {
+    console.error('Error fetching page settings:', error);
+    return null;
+  }
+}
