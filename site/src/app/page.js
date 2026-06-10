@@ -18,33 +18,7 @@ import Overlay from "@/components/overlay";
 import { RenderPortableText } from "@/components/portableText";
 import { getPageSettings } from "@/lib/sanity";
 import { useRef, useState, useEffect} from "react";
-
-
-const TypingScriptDynamic = ({
-  word
-}) => {
-
-  //https://blog.logrocket.com/5-ways-implement-typing-animation-react/ ;-;
-
-  let text = word
-  let delay = 10;
-  
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prevText => prevText + text[currentIndex]);
-        setCurrentIndex(prevIndex => prevIndex + 1);
-      }, delay);
-  
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, text]);
-
-  return <div className="absolute top-[10vh] left-[2vw] font-Ubuntu-Mono">{currentText}<span id="trailingChar">{"█"}</span></div>;
-};
+import { TypingScriptDynamic } from "@/components/TypingScriptDynamic";
 
 
 const Page = ({
@@ -52,7 +26,6 @@ const Page = ({
   passRef,
   pageSettings
 }) => {
-  console.log(pageSettings);
   const [typingWord, setTypingWord] = useState('');
 
   // Generate word once on mount or when pageSettings changes
@@ -93,8 +66,8 @@ const Page = ({
         <div className="absolute left-[2vw] bottom-[16vh] sm:bottom-[11vh] lazycssthing flex flex-col items-center text-center mt-[100vh]">
           <h2 className="text-[1.7rem]">
               <>
-                <span className="main-captions">Connecting hardware and software</span><br />
-                <span className="main-captions [animation-delay:4.5s_!important]">for the sake of the system.</span>
+                <span className="main-captions">Bridging the full stack</span><br />
+                <span className="main-captions [animation-delay:4.5s_!important]">to drive collaborative innovation.</span>
               </>
           </h2>
           {/* DO SOMETHING ABOUT THIS. */}

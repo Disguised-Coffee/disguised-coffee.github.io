@@ -30,6 +30,7 @@ const Overlay = forwardRef(
                     const projects = await getProjects();
                     setData(projects || []);
                     const about = await getAboutInfo();
+                    console.log(about);
                     setAboutData(about);
                     const contacts = await getContacts();
                     setContactsData(contacts || []);
@@ -140,7 +141,7 @@ const Overlay = forwardRef(
                     }
                 }}
                 onKeyDown={(event) => {
-                    console.log(event);
+                    console.trace(event);
                 }}
             >
                 <div className="overlayContainer cursor-default"
@@ -163,23 +164,6 @@ Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
     const { data, aboutData, contactsData } = props;
-    
-    let EnnumList = (props) => {
-        let toR = [];
-        props.arr.forEach((obj, key) => {
-            toR.push(
-                <li className="list-item text-[1rem]" key={key}>
-                    
-                    <ParseForSpecialTags obj={obj}/>
-                </li>
-            )
-        })
-        return (
-            <ol className="list-decimal ml-[2rem]">
-                {toR}
-            </ol>
-        )
-    }
 
     try {
         if (props.index == null) {
@@ -195,17 +179,8 @@ function OverlayContent(props) {
                                 <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">Last Updated: 
                                     <span className="font-light italic"> {aboutData.lastUpdate || "N/A"}</span></h2>
                             </div>
-                            <div className="text-[1.4rem] 2xl:text-[1.8rem]">
-                                <ul className="list-disc">
-                                    {(aboutData.qa || []).map((obj, key) => {
-                                        return (
-                                            <li key={key}>
-                                                <h3>{obj.q}</h3>
-                                                <EnnumList arr={obj.a} />
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
+                            <div className="text-[1.4rem] 2xl:text-[1.8rem] space-y-8">
+                                {renderAboutSections(aboutData)}
                             </div>
                         </div>
                     );
@@ -329,7 +304,7 @@ function OverlayContent(props) {
         )
     }
     catch (TypeError) {
-        console.log(TypeError)
+        console.error(TypeError)
         return (
             <h1 className="text-center text-[1.5rem] m-auto">
                 A problem has occured (and please tell me how)!<br />
@@ -337,6 +312,54 @@ function OverlayContent(props) {
             </h1>
         )
     }
+}
+
+function renderAboutSections(aboutData) {
+    
+    console.warn(aboutData)
+    
+    const sections = Array.isArray(aboutData?.sections) && aboutData.sections.length > 0
+        ? aboutData.sections
+        : Array.isArray(aboutData?.qa) && aboutData.qa.length > 0
+            ? [{_type: 'aboutQaSection', title: 'Q&A', items: aboutData.qa}]
+            : [];
+
+    if (sections.length === 0) {
+        return <p className="text-center">No About sections available.</p>;
+    }
+
+    return sections.map((section, sectionIndex) => {
+        if (section._type === 'aboutTextSection') {
+            return (
+                <section key={section._key || sectionIndex} className="space-y-4">
+                    {section.title ? <h3 className="text-[1.7rem] font-semibold font-[Lato]">{section.title}</h3> : null}
+                    <div className="font-medium leading-9">
+                        <RenderPortableText value={section.body} />
+                    </div>
+                </section>
+            );
+        }
+
+        if (section._type === 'aboutQaSection') {
+            return (
+                <section key={section._key || sectionIndex} className="space-y-4">
+                    {section.title ? <h3 className="text-[1.7rem] font-semibold font-[Lato]">{section.title}</h3> : null}
+                    <ul className="list-disc pl-[1.5rem] space-y-4">
+                        {(section.items || []).map((item, itemIndex) => (
+                            <li key={item._key || itemIndex}>
+                                <h4 className="font-semibold text-[1.2rem]">{item.q}</h4>
+                                <div className="font-medium leading-9 pt-[0.25rem]">
+                                    <RenderPortableText value={item.a} />
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        return null;
+    });
 }
 
 function Note(props) {

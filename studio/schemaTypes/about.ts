@@ -20,33 +20,22 @@ export const about = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'qa',
-      title: 'Q&A',
+      name: 'sections',
+      title: 'About Sections',
       type: 'array',
       of: [
-        defineField({
-          name: 'qaItem',
-          title: 'Question & Answer',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'q',
-              title: 'Question',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'a',
-              title: 'Answers',
-              type: 'array',
-              of: [{type: 'block'}],
-              description: 'Answer as Portable Text',
-              validation: (Rule) => Rule.required(),
-            }),
-          ],
-        }),
+        {type: 'aboutQaSection'},
+        {type: 'aboutTextSection'},
       ],
       validation: (Rule) => Rule.required(),
+      description: 'Section builder for the About page',
+    }),
+    defineField({
+      name: 'qa',
+      title: 'Legacy Q&A',
+      type: 'array',
+      of: [{type: 'aboutQaItem'}],
+      description: 'Legacy field kept for older content; prefer About Sections instead',
     }),
   ],
 })
