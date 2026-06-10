@@ -15,7 +15,7 @@ let v = false;
 let test = "this is a test";
 
 const Overlay = forwardRef(
-    ({ hc }, ref) => {
+    ({ hc, onClose }, ref) => {
         // [][][][][]  \/
         const overlayRef = useRef(null);
         const innerlayRef = useRef(null);
@@ -50,6 +50,9 @@ const Overlay = forwardRef(
             if (typeof document !== 'undefined') {
                 document.body.style.overflow = '';
                 document.documentElement.style.overflow = '';
+            }
+            if (onClose) {
+                onClose();
             }
         }
 
@@ -110,7 +113,7 @@ const Overlay = forwardRef(
         else {
             i = 0;
             //search for the data
-            while (i < data.length && (data[i].name != hc)) {
+            while (i < data.length && (data[i].id?.current != hc)) {
                 i++;
             }
         }

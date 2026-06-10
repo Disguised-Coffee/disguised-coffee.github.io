@@ -13,7 +13,7 @@ export async function getProjects() {
     _id,
     name,
     dn,
-    slug,
+    id,
     icon -> {
       _id,
       name,
@@ -47,16 +47,16 @@ export async function getProjects() {
   }
 }
 
-// Fetch project by name
-export async function getProjectByName(name) {
-  const query = `*[_type == "project" && name == $name][0]`;
+// Fetch project ids for routing
+export async function getProjectIds() {
+  const query = `*[_type == "project" && defined(id.current)]{ "id": id.current }`;
   
   try {
-    const project = await client.fetch(query, { name });
-    return project;
+    const ids = await client.fetch(query);
+    return ids;
   } catch (error) {
-    console.error('Error fetching project:', error);
-    return null;
+    console.error('Error fetching project ids:', error);
+    return [];
   }
 }
 

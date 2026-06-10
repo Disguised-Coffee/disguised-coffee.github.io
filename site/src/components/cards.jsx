@@ -70,14 +70,15 @@ const Card =
     title,
     dn,
     icon,
-    us,
-    passRef
+    projectId,
+    onProjectClick
 }) => {
     counter++;
 
-    let testFunc = (title) =>{
-        us(title)
-        passRef.current.overlayOn();
+    let testFunc = () =>{
+        if (projectId && onProjectClick) {
+            onProjectClick(projectId)
+        }
     }
     
     let DesignationName = ()=>{
@@ -99,7 +100,7 @@ const Card =
                           h-[21vh] sm:h-[34vh] 
                           overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D] m-4
-                          hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
+                          hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={testFunc}>
             {image && image.asset && image.asset.url ? (
                 <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" 
                     src={image.asset.url} 

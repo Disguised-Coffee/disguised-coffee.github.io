@@ -6,8 +6,7 @@ import GLOBALSFORMRWORLDWIDE from "./const";
 import { getProjects } from "@/lib/sanity";
 
 const Content = ({
-    changeHC,
-    passRef
+    onProjectClick
 }) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -57,7 +56,7 @@ const Content = ({
                     data.map((obj, key) => {
                         return (
                             <React.Fragment key={key}>
-                                <Card image={obj.image} title={obj.name} dn={obj.dn} icon={obj.icon} us={changeHC} passRef={passRef} />
+                                <Card image={obj.image} title={obj.name} dn={obj.dn} icon={obj.icon} projectId={obj.id?.current} onProjectClick={onProjectClick} />
                             </React.Fragment>
                         )
                     })

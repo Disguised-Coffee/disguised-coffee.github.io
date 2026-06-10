@@ -82,15 +82,15 @@ export const project = defineType({
       description: 'Reference to the project icon',
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
+      name: 'id',
+      title: 'Id',
       type: 'slug',
       options: {
         source: 'name',
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
-      description: 'URL-friendly slug for the project',
+      description: 'URL-friendly id for the project',
     }),
     defineField({
       name: 'misc',
