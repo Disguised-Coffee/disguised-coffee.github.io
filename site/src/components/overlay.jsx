@@ -218,6 +218,34 @@ function OverlayContent(props) {
             return <p className="text-center">Project not found</p>;
         }
         console.log(data)
+
+        // we'll reformat the date that is displayed based on criteria:
+        //  1) does it exist? --> put nothing
+        //  2) is it ongoing? --> put `Month Year` - Now
+        //  3) does the end date not exist and not ongoing? --> put `Month Year` (ie: for single-day projects)
+        //  4) are the months the same? --> put `Month Year`
+        //  5) otherwise, put `Month Year` - `Month Year`
+
+        const formattedDate = (() => {
+            // remember to reformat!
+            if (!data[props.index].date) {
+                return "";
+            }
+            const beginDate = new Date(data[props.index].date.begin).toLocaleString('default', {month: 'long', year: 'numeric'});
+            if (!data[props.index].date.ongoing && !data[props.index].date.end) {
+                return `${beginDate}`;
+            }
+            if (data[props.index].date.ongoing) {
+                return `${beginDate} - Now`;
+            }
+            const endDate = new Date(data[props.index].date.end).toLocaleString('default', {month: 'long', year: 'numeric'});
+
+            if (beginDate  === endDate) {
+                return `${beginDate}`;
+            }
+            return `${beginDate} - ${endDate}`;
+        })();
+
         return (
             <>
                 <div className="w-full flex">
@@ -226,10 +254,7 @@ function OverlayContent(props) {
                         <div className="font-[Lato]">
                             <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index] ? data[props.index].name : ""}</h1>
                             <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
-                                {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
-                                    : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)
-                                        : (`${data[props.index].date.begin} - ${data[props.index].date.end}`)
-                                )}
+                                {formattedDate}
                             </h2>
                         </div>
                         <div className="text-[1.4rem] 2xl:text-[1.8rem]">

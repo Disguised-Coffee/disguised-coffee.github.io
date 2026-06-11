@@ -50,13 +50,13 @@ export const project = defineType({
         defineField({
           name: 'begin',
           title: 'Start Date',
-          type: 'string',
+          type: 'date',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'end',
           title: 'End Date',
-          type: 'string',
+          type: 'date',
         }),
         defineField({
           name: 'ongoing',
