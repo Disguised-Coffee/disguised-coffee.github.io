@@ -67,7 +67,7 @@ const Page = ({
           <h2 className="text-[1.7rem]">
               <>
                 <span className="main-captions">Bridging the full stack</span><br />
-                <span className="main-captions [animation-delay:4.5s_!important]">to drive collaborative innovation.</span>
+                <span className="main-captions [animation-delay:4.5s_!important]">to drive collaborative innovation</span>
               </>
           </h2>
           {/* DO SOMETHING ABOUT THIS. */}

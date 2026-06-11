@@ -405,24 +405,25 @@ function Note(props) {
 function OverlayBottom(props) {
     const { data, index } = props;
     let a = [];
-    if (!index || !data || !data[index] || !data[index].misc) {
+    if ( !data || !data[index] || !data[index].misc) {
         return (
             <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
         );
     }
-
+    
     data[index].misc.forEach((blah, num) => {
         a.push(
-            <div className="flex mr-4 items-center" key={num}>
-                <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem]" />
-                <a href={blah.src} className="font-[Ubuntu] text-[var(--link-color)] underline italic text-[1.2rem]">
+            <div className="flex mr-4 items-center p-2" key={num}>
+                
+                <a href={blah.src} className="font-[Ubuntu] text-white underline italic text-xl/6 inline flex items-center font-bold">
+                    <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem] inline" />
                     {blah.display ? blah.display : "bruh"}
                 </a>
             </div>
         )
     });
     return (
-        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative">
+        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex z-[10] relative">
             {a}
         </div>
     )

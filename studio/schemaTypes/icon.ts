@@ -17,10 +17,7 @@ export const icon = defineType({
       title: 'SVG File',
       type: 'file',
       validation: (Rule) => Rule.required(),
-      description: 'SVG file for the icon',
-      options: {
-        accept: '.svg',
-      },
+      description: 'SVG/PNG file for the icon',
     }),
   ],
 })
