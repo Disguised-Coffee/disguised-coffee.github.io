@@ -76,9 +76,9 @@ export const project = defineType({
     }),
     defineField({
       name: 'icon',
-      title: 'Project Icon',
-      type: 'reference',
-      to: [{type: 'icon'}],
+      title: 'Stack Icon',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'icon'}}],
       description: 'Reference to the project icon',
     }),
     defineField({

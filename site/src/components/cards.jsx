@@ -1,51 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import GLOBALSFORMRWORLDWIDE from "@/app/const" ;
 
 let counter = 0;
-
-function ReturnFileName(element) {
-    let j;
-    switch (element) {
-        case "css":
-            j = "css-3";
-            break;
-        case "html":
-            j = "html-5";
-            break;
-        case "js":
-            j = "js";
-            break
-        case "java":
-            j = "java";
-            break
-        case "node":
-            j = "nodejs";
-            break;
-        case "figma":
-            j = "figma";
-            break;
-        case "python":
-            j = "python";
-            break
-        case "react":
-            j = "react";
-            break
-        case "vite":
-            j = "vite";
-            break
-        case "github":
-            j = "github";
-            break
-        case "phaser":
-            return "phaser3.png";
-        case "particle":
-            return "particle.png"
-        default:
-            return (element + ".svg");
-    }
-    return (j + ".svg")
-}
 
 /**
  * 
@@ -69,8 +24,8 @@ const Card =
     image,
     title,
     dn,
-    icon,
     us,
+    icons,
     passRef
 }) => {
     counter++;
@@ -100,9 +55,9 @@ const Card =
                           overflow-hidden rounded 
                           shadow-[10px_10px_0px_#3E3D3D] m-4
                           hover:scale-[105%] group ease-in-out duration-300 cursor-pointer" onClick={() =>{ testFunc(title)}}>
-            {image && image.asset && image.asset.url ? (
+            {image ? (
                 <img className="object-cover h-full w-full filter brightness-50 blur-[1px]" 
-                    src={image.asset.url} 
+                    src={image.url} 
                     alt={image.alt ? image.alt : ("project" + counter)} />
             ) : (
                 <div className="object-cover h-full w-full bg-topBar shadow-inner"></div>
@@ -124,23 +79,26 @@ const Card =
             <div className="absolute h-full w-full z-[0] top-[0] flex justify-center">
                 {/* div for tech icons []*/}
                 <div className="absolute hidden sm:flex justify-center flex-col bottom-[1vh] opacity-0 group-hover:opacity-100 ease-in-out duration-300">
-                    <h4 className="italic text-center text-white text-[0.9rem]">Icon</h4>
-                    <div className="flex justify-center h-max">
-                        {
-                            icon ? (
-                                <img
-                                    src={icon.svg?.asset?.url}
-                                    alt={icon.name}
-                                    className="pr-[3px] h-[32px] w-[32px]"
-                                />
-                            ) : null
-                        }
-                    </div>
+                    {/* if icons exist, create the div below and array of icons */}
+                    { icons ? (
+                        <>
+                            <h4 className="italic text-center text-white text-[0.9rem]">Made with</h4>
+                            <div className="flex justify-center h-max">
+                                {icons.map((icon, index) => (
+                                    <img
+                                        key={index}
+                                        src={icon.url}
+                                        alt={icon.name}
+                                        className="pr-[3px] h-[32px] w-[32px]"
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    ) : null}
                 </div>
-
             </div>
         </div>
     );
 };
 
-export {Card, ReturnFileName};
+export {Card};

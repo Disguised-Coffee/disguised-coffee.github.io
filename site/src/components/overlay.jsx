@@ -30,7 +30,6 @@ const Overlay = forwardRef(
                     const projects = await getProjects();
                     setData(projects || []);
                     const about = await getAboutInfo();
-                    console.log(about);
                     setAboutData(about);
                     const contacts = await getContacts();
                     setContactsData(contacts || []);
@@ -215,17 +214,17 @@ function OverlayContent(props) {
         if (!data || data.length === 0) {
             return <p className="text-center">Loading project data...</p>;
         }
-        if (props.index === null) {
+        if (props.index === null || data[props.index] === undefined) {
             return <p className="text-center">Project not found</p>;
         }
-        console.log(data[props.index])
+        console.log(data)
         return (
             <>
                 <div className="w-full flex">
                     <div className="w-1/2">
                         {/* header */}
                         <div className="font-[Lato]">
-                            <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index].name}</h1>
+                            <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index] ? data[props.index].name : ""}</h1>
                             <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
                                 {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
                                     : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)
@@ -241,33 +240,33 @@ function OverlayContent(props) {
                     </div>
                     <div className="w-1/2 overflow-y-auto pr-[7px]">
                         {/* card thingy */}
-                        <div className="flex flex-col items-end">
-                            <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
+                        {/* if there are icons, then display them */}
+                        
+                            { data[props.index].icons ? (
+                                <div className="flex flex-col items-end">
+                                <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
                                 Made With
-                            </h3>
-                            <div className="flex jusify-center h-max">
-                                {/* icon symbol */}
-                                {
-                                    data[props.index].icon ? (
-                                        <div className="flex items-center">
-                                            {data[props.index].icon.svg?.asset?.url && (
-                                                <img
-                                                    src={data[props.index].icon.svg.asset.url}
-                                                    alt={data[props.index].icon.name}
-                                                    className="pl-[4px] h-[3rem]"
-                                                />
-                                            )}
-                                        </div>
-                                    ) : null
-                                }
-                            </div>
-                        </div>
+                                </h3>
+                                <div className="flex jusify-center h-max">
+                                    {/* icons */}
+                                    {data[props.index].icons.map((icon, index) => (
+                                        <img
+                                            key={index}
+                                            src={icon.url}
+                                            alt={icon.name}
+                                            className="pl-[4px] h-[3rem]"
+                                        />
+                                    ))}
+                                </div>
+                                </div>
+                            ) : ""
+                            }
                         {(
-                            data[props.index].image && data[props.index].image.asset && data[props.index].image.asset.url ?
+                            data[props.index].image ?
 
                                 <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
                                     <img
-                                        src={data[props.index].image.asset.url}
+                                        src={data[props.index].image.url}
                                         alt={data[props.index].image.alt || "Project image"}
                                         className="h-[23vh] ml-auto mr-auto"
                                     />

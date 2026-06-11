@@ -14,19 +14,12 @@ export async function getProjects() {
     name,
     dn,
     slug,
-    icon -> {
-      _id,
+    "icons": icon[]-> {
       name,
-      svg {
-        asset -> {
-          url
-        }
-      }
+      "url": svg.asset->url
     },
     image {
-      asset -> {
-        url
-      },
+      "url": asset.asset->url,
       alt,
       caption
     },
