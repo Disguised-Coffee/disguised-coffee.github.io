@@ -1,8 +1,10 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import data from "../app/cardData.json"
+'use client'
+
+import React, { forwardRef, useImperativeHandle, useRef, useState, useEffect } from "react";
 import { ReturnFileName } from "./cards";
 import GLOBALSFORMRWORLDWIDE from "@/app/const";
-import infoJson from "../app/info.json"
+import { getProjects, getAboutInfo, getContacts } from "@/lib/sanity";
+import {RenderPortableText} from "./portableText"
 
 /*
     Overhaul the overlay idea from Spot Iffy.
@@ -16,14 +18,38 @@ const Overlay = forwardRef(
     ({ hc }, ref) => {
         // [][][][][]  \/
         const overlayRef = useRef(null);
-
         const innerlayRef = useRef(null);
+        const [data, setData] = useState([]);
+        const [aboutData, setAboutData] = useState(null);
+        const [contactsData, setContactsData] = useState([]);
+        const [isLoading, setIsLoading] = useState(false);
 
+        useEffect(() => {
+            const fetchAllData = async () => {
+                try {
+                    const projects = await getProjects();
+                    setData(projects || []);
+                    const about = await getAboutInfo();
+                    setAboutData(about);
+                    const contacts = await getContacts();
+                    setContactsData(contacts || []);
+                } catch (error) {
+                    console.error('Error fetching overlay data:', error);
+                }
+            };
+            fetchAllData();
+        }, []);
 
         function offOverlay() {
+            overlayRef.current.style.display = "none";
             innerlayRef.current.classList.remove("overlayAniOn");
             innerlayRef.current.classList.add("overlayAniOff");
             overlayRef.current.classList.add("outterOverlayOff");
+            // Re-enable scrolling
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            }
         }
 
         function onOverlay() {
@@ -31,6 +57,12 @@ const Overlay = forwardRef(
             innerlayRef.current.classList.remove("overlayAniOff");
             overlayRef.current.classList.remove("outterOverlayOff");
             innerlayRef.current.classList.add("overlayAniOn");
+
+            // Disable scrolling when overlay is open
+            if (typeof document !== 'undefined') {
+                document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
+            }
 
             //fixes speedup css glitch
             setTimeout(()=>{
@@ -108,7 +140,7 @@ const Overlay = forwardRef(
                     }
                 }}
                 onKeyDown={(event) => {
-                    console.log(event);
+                    console.trace(event);
                 }}
             >
                 <div className="overlayContainer cursor-default"
@@ -118,10 +150,10 @@ const Overlay = forwardRef(
                         {"press 'escape' or click outside to close"}
                     </div>
                     <div className="innerOverlay w-[100vw] xl:w-[80vw]">
-                        <OverlayContent index={i} hc={hc} />
+                        <OverlayContent index={i} hc={hc} data={data} aboutData={aboutData} contactsData={contactsData} />
                     </div>
                     {/* bottom bar thing */}
-                    <OverlayBottom index={i} />
+                    <OverlayBottom index={i} data={data} />
                 </div>
             </div>
         )
@@ -130,45 +162,24 @@ const Overlay = forwardRef(
 Overlay.displayName = 'Overlay';
 
 function OverlayContent(props) {
-    let EnnumList = (props) => {
-        let toR = [];
-        props.arr.forEach((obj, key) => {
-            toR.push(
-                <li className="list-item text-[1rem]" key={key}>
-                    
-                    <ParseForSpecialTags obj={obj}/>
-                </li>
-            )
-        })
-        return (
-            <ol className="list-decimal ml-[2rem]">
-                {toR}
-            </ol>
-        )
-    }
+    const { data, aboutData, contactsData } = props;
 
     try {
         if (props.index == null) {
             switch (props.hc) {
                 case "about":
+                    if (!aboutData) {
+                        return <p className="text-center">Loading about info...</p>;
+                    }
                     return (
                         <div className="w-full overflow-y-auto">
                             <div className="font-[Lato] flex flex-col">
                                 <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">About Me</h1>
                                 <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">Last Updated: 
-                                    <span className="font-light italic"> {infoJson.about.lastUpdate}</span></h2>
+                                    <span className="font-light italic"> {aboutData.lastUpdate || "N/A"}</span></h2>
                             </div>
-                            <div className="text-[1.4rem] 2xl:text-[1.8rem]">
-                                <ul className="list-disc">
-                                    {infoJson.about.qa.map((obj, key) => {
-                                        return (
-                                            <li key={key}>
-                                                <h3>{obj.q}</h3>
-                                                <EnnumList arr={obj.a} />
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
+                            <div className="text-[1.4rem] 2xl:text-[1.8rem] space-y-8">
+                                {renderAboutSections(aboutData)}
                             </div>
                         </div>
                     );
@@ -184,7 +195,7 @@ function OverlayContent(props) {
                                 <p className="text-[19rem]">hi</p>
                                 <p className="text-[0.9rem]">well, there&#39;s not a &#39;direct&#39; way to contact me...</p>
                                 <ul className="list-disc">
-                                    {infoJson.contacts.map((obj, key)=>{
+                                    {(contactsData || []).map((obj, key)=>{
                                         return(
                                             <p key={key}>
                                                 <span className="font-semibold">{obj.site}</span>: <a href={obj.link} className="underline underline-offset-2 text-link text-lg italic">{obj.link}</a>
@@ -200,72 +211,88 @@ function OverlayContent(props) {
                 // throw new Error;
             }
         }
+        if (!data || data.length === 0) {
+            return <p className="text-center">Loading project data...</p>;
+        }
+        if (props.index === null || data[props.index] === undefined) {
+            return <p className="text-center">Project not found</p>;
+        }
+        console.log(data)
+
+        // we'll reformat the date that is displayed based on criteria:
+        //  1) does it exist? --> put nothing
+        //  2) is it ongoing? --> put `Month Year` - Now
+        //  3) does the end date not exist and not ongoing? --> put `Month Year` (ie: for single-day projects)
+        //  4) are the months the same? --> put `Month Year`
+        //  5) otherwise, put `Month Year` - `Month Year`
+
+        const formattedDate = (() => {
+            // remember to reformat!
+            if (!data[props.index].date) {
+                return "";
+            }
+            const beginDate = new Date(data[props.index].date.begin).toLocaleString('default', {month: 'long', year: 'numeric'});
+            if (!data[props.index].date.ongoing && !data[props.index].date.end) {
+                return `${beginDate}`;
+            }
+            if (data[props.index].date.ongoing) {
+                return `${beginDate} - Now`;
+            }
+            const endDate = new Date(data[props.index].date.end).toLocaleString('default', {month: 'long', year: 'numeric'});
+
+            if (beginDate  === endDate) {
+                return `${beginDate}`;
+            }
+            return `${beginDate} - ${endDate}`;
+        })();
+
         return (
             <>
                 <div className="w-full flex">
                     <div className="w-1/2">
                         {/* header */}
                         <div className="font-[Lato]">
-                            <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index].name}</h1>
+                            <h1 className="text-[3.5rem] italic leading-[3rem] pb-[1.5rem]">{data[props.index] ? data[props.index].name : ""}</h1>
                             <h2 className="text-[1.2rem] mt-[-1.1rem] font-semibold">
-                                {((!data[props.index].date.end && data[props.index].date.ongoing) ? (`${data[props.index].date.begin} - Now`) // single date that is ongoing
-                                    : (!data[props.index].date.end && !data[props.index].date.ongoing) ? (`${data[props.index].date.begin}`)
-                                        : (`${data[props.index].date.begin} - ${data[props.index].date.end}`)
-                                )}
+                                {formattedDate}
                             </h2>
                         </div>
                         <div className="text-[1.4rem] 2xl:text-[1.8rem]">
-                            {(
-                                data[props.index].desc.caption ?
-                                    <h3 className="italic font-semibold font-[Ubuntu] pb-[0.5rem]">
-                                        {`(${data[props.index].desc.caption})`}
-                                    </h3>
-                                    : ""
-                            )}
                             <div className="font-medium leading-9 h-[48vh] overflow-y-auto">
-                            <ParseForSpecialTags obj={data[props.index].desc.paragraph} />
+                                <RenderPortableText value={data[props.index].desc} />
                             </div>
                         </div>
                     </div>
                     <div className="w-1/2 overflow-y-auto pr-[7px]">
                         {/* card thingy */}
-                        <div className="flex flex-col items-end">
-                            <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
+                        {/* if there are icons, then display them */}
+                        
+                            { data[props.index].icons ? (
+                                <div className="flex flex-col items-end">
+                                <h3 className="text-[1.3rem] font-bold italic font-[Ubuntu] w-auto items-end">
                                 Made With
-                            </h3>
-                            <div className="flex jusify-center h-max">
-                                {/* tech symbols */}
-                                {
-                                    data[props.index].tech.map((element, key) => {
-                                        let r = ReturnFileName(element);
-                                        if (r === "") {
-                                            return;
-                                        }
-                                        else {
-                                            key;
-                                            return (
-                                                <img
-                                                    src={"/icons/" + r}
-                                                    alt={r}
-                                                    key={key}
-                                                    className="pl-[4px] h-[3rem]"
-                                                />
-                                            )
-                                        }
-                                    })
-                                }
-                            </div>
-                        </div>
+                                </h3>
+                                <div className="flex jusify-center h-max">
+                                    {/* icons */}
+                                    {data[props.index].icons.map((icon, index) => (
+                                        <img
+                                            key={index}
+                                            src={icon.url}
+                                            alt={icon.name}
+                                            className="pl-[4px] h-[3rem]"
+                                        />
+                                    ))}
+                                </div>
+                                </div>
+                            ) : ""
+                            }
                         {(
                             data[props.index].image ?
 
                                 <div className="flex items-end flex-col pt-[0.5rem] w-fit ml-auto">
                                     <img
-                                        // priority
-                                        src={GLOBALSFORMRWORLDWIDE.cardSRC + data[props.index].image.src}
-                                        // width={32}   
-                                        // height={32}
-                                        alt="shjsad"
+                                        src={data[props.index].image.url}
+                                        alt={data[props.index].image.alt || "Project image"}
                                         className="h-[23vh] ml-auto mr-auto"
                                     />
 
@@ -294,14 +321,14 @@ function OverlayContent(props) {
                             }
                         </div>
                         {/* Special Note */}
-                        <Note index={props.index} />
+                        <Note index={props.index} data={data} />
                     </div>
                 </div>
             </>
         )
     }
     catch (TypeError) {
-        console.log(TypeError)
+        console.error(TypeError)
         return (
             <h1 className="text-center text-[1.5rem] m-auto">
                 A problem has occured (and please tell me how)!<br />
@@ -311,41 +338,87 @@ function OverlayContent(props) {
     }
 }
 
+function renderAboutSections(aboutData) {
+    
+    console.warn(aboutData)
+    
+    const sections = Array.isArray(aboutData?.sections) && aboutData.sections.length > 0
+        ? aboutData.sections
+        : Array.isArray(aboutData?.qa) && aboutData.qa.length > 0
+            ? [{_type: 'aboutQaSection', title: 'Q&A', items: aboutData.qa}]
+            : [];
+
+    if (sections.length === 0) {
+        return <p className="text-center">No About sections available.</p>;
+    }
+
+    return sections.map((section, sectionIndex) => {
+        if (section._type === 'aboutTextSection') {
+            return (
+                <section key={section._key || sectionIndex} className="space-y-4">
+                    {section.title ? <h3 className="text-[1.7rem] font-semibold font-[Lato]">{section.title}</h3> : null}
+                    <div className="font-medium leading-9">
+                        <RenderPortableText value={section.body} />
+                    </div>
+                </section>
+            );
+        }
+
+        if (section._type === 'aboutQaSection') {
+            return (
+                <section key={section._key || sectionIndex} className="space-y-4">
+                    {section.title ? <h3 className="text-[1.7rem] font-semibold font-[Lato]">{section.title}</h3> : null}
+                    <ul className="list-disc pl-[1.5rem] space-y-4">
+                        {(section.items || []).map((item, itemIndex) => (
+                            <li key={item._key || itemIndex}>
+                                <h4 className="font-semibold text-[1.2rem]">{item.q}</h4>
+                                <div className="font-medium leading-9 pt-[0.25rem]">
+                                    <RenderPortableText value={item.a} />
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        return null;
+    });
+}
+
 function Note(props) {
-    if (data[props.index].note) {
-        return (
-            <div className="pl-[3vw] text-[1.3rem] mt-[2rem]">
-                {/* [][][[]] THIS DESERVES AN ANIMATION. */}
-                < h4 className="font-[Ubuntu]" >
-                    Special Note
-                </h4 >
-                <p className="italic">
-                    {data[props.index].note.text}
-                    <br />
-                    <br />
-                    {
-
-                        (data[props.index].note.links ?
-                            data[props.index].note.links.map((ele, key) => {
-                                return (
-                                    <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
-                                        <span></span>
-                                        <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="h-[100%] w-[1.6rem] mr-[0.2rem]" />
-                                        {ele.display}<br />
-                                    </a>
-                                )
-                            })
-                            : ""
-                        )
-                    }
-                </p>
-            </div>
-        )
+    const { data, index } = props;
+    if (!data || !data[index] || !data[index].note) {
+        return null;
     }
-    else {
-        return;
-    }
+    return (
+        <div className="pl-[3vw] text-[1.3rem] mt-[2rem]">
+            {/* [][][[]] THIS DESERVES AN ANIMATION. */}
+            < h4 className="font-[Ubuntu]" >
+                Special Note
+            </h4 >
+            <p className="italic">
+                {data[index].note.text}
+                <br />
+                <br />
+                {
 
+                    (data[index].note.links ?
+                        data[index].note.links.map((ele, key) => {
+                            return (
+                                <a className="flex text-[var(--link-color)]" href={ele.src} key={key}>
+                                    <span></span>
+                                    <img src={"icons/web/" + handleBadges(ele) + ".svg"} className="h-[100%] w-[1.6rem] mr-[0.2rem]" />
+                                    {ele.display}<br />
+                                </a>
+                            )
+                        })
+                        : ""
+                    )
+                }
+            </p>
+        </div>
+    )
 }
 
 
@@ -355,25 +428,27 @@ function Note(props) {
  * @returns 
  */
 function OverlayBottom(props) {
+    const { data, index } = props;
     let a = [];
-    if (!props.index || !data[props.index].misc) {
+    if ( !data || !data[index] || !data[index].misc) {
         return (
             <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative"></div>
         );
     }
-
-    data[props.index].misc.forEach((blah, num) => {
+    
+    data[index].misc.forEach((blah, num) => {
         a.push(
-            <div className="flex mr-4 items-center" key={num}>
-                <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem]" />
-                <a href={blah.src} className="font-[Ubuntu] text-[var(--link-color)] underline italic text-[1.2rem]">
+            <div className="flex mr-4 items-center p-2" key={num}>
+                
+                <a href={blah.src} className="font-[Ubuntu] text-white underline italic text-xl/6 inline flex items-center font-bold">
+                    <img src={"icons/web/" + handleBadges(blah) + ".svg"} className="w-[1.6rem] mr-[0.2rem] inline" />
                     {blah.display ? blah.display : "bruh"}
                 </a>
             </div>
         )
     });
     return (
-        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex h-[1.8rem] z-[10] relative">
+        <div className="bg-[var(--overlay-highlight)] text-white pl-6 pr-6 flex z-[10] relative">
             {a}
         </div>
     )
