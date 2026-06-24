@@ -3,7 +3,7 @@ description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependenci
 
 defaults:
   run:
-    working-directory: ./your-sub-project
+    working-directory: ./site
 
 
 runs:
